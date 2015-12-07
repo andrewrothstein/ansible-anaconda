@@ -1,0 +1,4 @@
+---
+- hosts: all
+  roles:
+    - { role: '.', anaconda_make_sys_default : True }

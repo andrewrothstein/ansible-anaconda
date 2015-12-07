@@ -1,0 +1,40 @@
+---
+# tasks file for anaconda
+- name: download installer.sh
+  get_url: >
+    url={{anaconda_installer_url}}
+    dest=/tmp/{{anaconda_installer_sh}}
+    owner=root
+    group=root
+    mode=0755
+
+- name: installing conda
+  command: /tmp/{{anaconda_installer_sh}} -b -p /opt/{{anaconda_name}}
+  args:
+    creates: /opt/{{anaconda_name}}/bin/conda
+
+- name: link anaconda...
+  file:
+    dest=/opt/anaconda
+    src=/opt/{{anaconda_name}}
+    state=link
+    owner=root
+    group=root
+
+- name: conda updates
+  command: /opt/anaconda/bin/conda update -y {{item}}
+  with_items:
+    - conda
+    - ipython
+    - ipython-notebook
+    - ipython-qtconsole
+
+- name: make system default python etc...
+  when: anaconda_make_sys_default
+  copy: >-
+    src=etc/profile.d/anaconda.sh
+    dest=/etc/profile.d/anaconda.sh
+    mode=0644
+    owner=root
+    group=root
+    
