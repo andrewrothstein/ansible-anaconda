@@ -25,6 +25,10 @@
   command: /opt/anaconda/bin/conda update -y {{item}}
   with_items:
     - conda
+    - pandas
+    - numpy
+    - scipy
+    - scikit-learn
     - ipython
     - ipython-notebook
     - ipython-qtconsole
