@@ -33,6 +33,9 @@
     - ipython-notebook
     - ipython-qtconsole
 
+- name: remove conda curl -- it seems to cause some problems...
+  command: /opt/anaconda/bin/conda remove -y curl
+    
 - name: make system default python etc...
   when: anaconda_make_sys_default
   copy: >-
