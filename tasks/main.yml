@@ -13,6 +13,12 @@
   args:
     creates: /opt/{{anaconda_name}}/bin/conda
 
+- name: deleting installer...
+  when: anaconda_cleanup
+  file:
+    path=/tmp/{{anaconda_installer_sh}}
+    state=absent
+    
 - name: link anaconda...
   file:
     dest=/opt/anaconda
