@@ -29,7 +29,7 @@
 
 - name: conda updates
   command: /opt/anaconda/bin/conda update -y {{item}}
-  with_items: {{ anaconda_pkg_list }}
+  with_items: '{{ anaconda_pkg_list }}'
 
 - name: remove conda curl -- it seems to cause some problems...
   command: /opt/anaconda/bin/conda remove -y curl
