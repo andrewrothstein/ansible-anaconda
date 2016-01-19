@@ -29,15 +29,7 @@
 
 - name: conda updates
   command: /opt/anaconda/bin/conda update -y {{item}}
-  with_items:
-    - conda
-    - pandas
-    - numpy
-    - scipy
-    - scikit-learn
-    - ipython
-    - ipython-notebook
-    - ipython-qtconsole
+  with_items: {{ anaconda_pkg_list }}
 
 - name: remove conda curl -- it seems to cause some problems...
   command: /opt/anaconda/bin/conda remove -y curl
