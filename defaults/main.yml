@@ -8,11 +8,4 @@ anaconda_platform : 'Linux-x86_64'
 anaconda_make_sys_default : False
 anaconda_cleanup : False
 
-anaconda_pkg_list :
-  - conda
-  - pandas
-  - numpy
-  - scipy
-  - scikit-learn
-  - ipython
-  - jupyter
+anaconda_pkg_list : [ "conda" ]
