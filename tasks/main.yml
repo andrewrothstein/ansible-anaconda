@@ -27,13 +27,13 @@
     owner=root
     group=root
 
-- name: conda updates
-  command: /opt/anaconda/bin/conda update -y {{item}}
+- name: install additional packages...
+  command: /opt/anaconda/bin/conda install -y {{item}}
   with_items: '{{ anaconda_pkg_list }}'
 
-- name: remove conda curl -- it seems to cause some problems...
-  command: /opt/anaconda/bin/conda remove -y curl
-    
+- name: conda updates
+  command: /opt/anaconda/bin/conda update -y --all
+
 - name: make system default python etc...
   when: anaconda_make_sys_default
   copy: >-
