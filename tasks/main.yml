@@ -34,6 +34,9 @@
 - name: conda updates
   command: /opt/anaconda/bin/conda update -y --all
 
+- name: remove conda-curl since it conflicts with the system curl
+  command: /opt/anaconda/bin/conda remove -y curl
+  
 - name: make system default python etc...
   when: anaconda_make_sys_default
   copy: >-
