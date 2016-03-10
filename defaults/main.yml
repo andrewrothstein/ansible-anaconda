@@ -2,7 +2,7 @@
 # defaults file for anaconda
 anaconda_mirror : 'http://repo.continuum.io/archive'
 anaconda_python_ver : '2'
-anaconda_ver : '2.4.1'
+anaconda_ver : '2.5.0'
 anaconda_platform : 'Linux-x86_64'
 
 anaconda_make_sys_default : False
