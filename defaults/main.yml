@@ -5,6 +5,8 @@ anaconda_python_ver : '2'
 anaconda_ver : '4.0.0'
 anaconda_platform : 'Linux-x86_64'
 
+anaconda_timeout_seconds : 600
+
 anaconda_make_sys_default : False
 anaconda_cleanup : False
 
