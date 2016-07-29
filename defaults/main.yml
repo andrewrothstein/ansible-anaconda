@@ -2,7 +2,7 @@
 # defaults file for anaconda
 anaconda_mirror : 'http://repo.continuum.io/archive'
 anaconda_python_ver : '2'
-anaconda_ver : '4.0.0'
+anaconda_ver : '4.1.1'
 anaconda_platform : 'Linux-x86_64'
 
 anaconda_timeout_seconds : 600
