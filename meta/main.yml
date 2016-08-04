@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Andrew Rothstein
-  description: anaconda role
+  description: Role that install Anaconda and a bunch of conda packages
   company: BlackRock
   license:
     - MIT
