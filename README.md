@@ -11,7 +11,7 @@ see [meta/main.yml](meta/main.yml)
 Role Variables
 --------------
 
-see [defaults/main.yml](default/main.yml)
+see [defaults/main.yml](defaults/main.yml)
 
 Dependencies
 ------------
