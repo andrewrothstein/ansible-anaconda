@@ -46,6 +46,8 @@
   become: yes
   become_user: root
   command: /opt/anaconda/bin/conda remove -y curl
+  args:
+    removes: /opt/anaconda/lib/libcurl.a
   
 - name: make system default python etc...
   become: yes
