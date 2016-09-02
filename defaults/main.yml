@@ -8,9 +8,6 @@ anaconda_python_ver : '2'
 # anaconda version
 anaconda_ver : '4.1.1'
 
-# target platform. should be determined from vars but I'm lazy
-anaconda_platform : 'Linux-x86_64'
-
 # when downloading the anaconda binary it might take a while
 # don't let you less great network connection cause the roll to falter
 anaconda_timeout_seconds : 600
