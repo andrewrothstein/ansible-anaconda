@@ -31,6 +31,12 @@
     src=/opt/{{anaconda_name}}
     state=link
 
+- name: add custom conda channels...
+  become: yes
+  become_user: root
+  command: /opt/anaconda/bin/conda config --add channels {{item}}
+  with_items: '{{ anaconda_custom_channels }}'
+
 - name: install additional packages...
   become: yes
   become_user: root

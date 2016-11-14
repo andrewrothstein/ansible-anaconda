@@ -22,3 +22,6 @@ anaconda_cleanup : False
 
 # conda packages to install
 anaconda_pkg_list : []
+
+# conda custom channels to add
+anaconda_custom_channels : []
