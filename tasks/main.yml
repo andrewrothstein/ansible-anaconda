@@ -34,7 +34,7 @@
 - name: add custom conda channels...
   become: yes
   become_user: root
-  command: /opt/anaconda/bin/conda config --add channels {{item}}
+  command: /opt/anaconda/bin/conda config --append channels {{item}}
   with_items: '{{ anaconda_custom_channels }}'
 
 - name: install additional packages...
