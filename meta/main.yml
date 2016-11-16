@@ -9,17 +9,17 @@ galaxy_info:
   platforms:
     - name: EL
       versions:
-        - 7
+        - all
     - name: Fedora
       versions:
-        - 23
+        - all
     - name: Ubuntu
       versions:
-        - trusty
-        - xenial
+        - all
 
   galaxy_tags:
-    - development
+    - anaconda
+    - python
 
 dependencies: []
   
