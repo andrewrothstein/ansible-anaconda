@@ -1,0 +1,36 @@
+---
+machine:
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - sudo -H pip install --upgrade pip
+    - sudo -H pip install circleci-helpers ansible-galaxy-local-deps
+    - ansible-galaxy-local-deps-write
+
+test:
+  override:
+    - ? | 
+          circle-matrix <<"EHD"
+            env:
+              - OS=centos_7
+              - OS=fedora_23
+              - OS=fedora_24
+              - OS=ubuntu_trusty
+              - OS=ubuntu_xenial
+
+            before_script:
+              - env | sort
+              - export UPSTREAM=andrewrothstein/docker-ansible-role
+
+            script:
+              - docker pull $UPSTREAM:$OS
+              - echo "FROM $UPSTREAM:$OS" > Dockerfile.$OS
+              - docker build -t $CIRCLE_PROJECT_REPONAME:$OS -f Dockerfile.$OS .
+
+            after_script:
+              - docker images $CIRCLE_PROJECT_REPONAME:$OS
+          EHD
+      :
+        parallel: true
