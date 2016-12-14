@@ -6,7 +6,8 @@ anaconda_mirror : 'https://repo.continuum.io/archive'
 anaconda_python_ver : '2'
 
 # anaconda version
-anaconda_ver : '4.2.0'
+anaconda_ver: '4.2.0'
+anaconda_checksum: md5:a0d1fbe47014b71c6764d76fb403f217
 
 # when downloading the anaconda binary it might take a while
 # don't let you less great network connection cause the roll to falter

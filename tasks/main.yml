@@ -7,6 +7,7 @@
     dest=/tmp/{{anaconda_installer_sh}}
     mode=0755
     timeout={{anaconda_timeout_seconds}}
+    checksum={{anaconda_checksum}}
 
 - name: installing conda
   become: yes
@@ -59,8 +60,10 @@
   become: yes
   become_user: root
   when: anaconda_make_sys_default
+  with_items:
+    - etc/profile.d/anaconda.sh
   copy: >-
-    src=etc/profile.d/anaconda.sh
-    dest=/etc/profile.d/anaconda.sh
+    src={{item}}
+    dest=/{{item}}
     mode=0644
     
