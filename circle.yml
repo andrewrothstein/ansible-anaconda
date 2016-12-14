@@ -25,7 +25,6 @@ test:
               - export UPSTREAM=andrewrothstein/docker-ansible-role
 
             script:
-              - docker pull $UPSTREAM:$OS
               - echo "FROM $UPSTREAM:$OS" > Dockerfile.$OS
               - docker build -t $CIRCLE_PROJECT_REPONAME:$OS -f Dockerfile.$OS .
 
