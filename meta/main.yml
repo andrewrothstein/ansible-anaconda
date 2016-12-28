@@ -24,5 +24,7 @@ galaxy_info:
     - anaconda
     - python
 
-dependencies: []
+dependencies:
+  - role: andrewrothstein.alpine-glibc-shim
+    version: v1.0.0
   
