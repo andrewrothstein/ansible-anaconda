@@ -1,13 +1,13 @@
 ---
 # main Anaconda download server
-anaconda_mirror : 'https://repo.continuum.io/archive'
+anaconda_mirror : https://repo.continuum.io/archive
 
 # version of python (2|3)
-anaconda_python_ver : '2'
+anaconda_python_ver : 3
 
 # anaconda version
 anaconda_ver: '4.2.0'
-anaconda_checksum: md5:a0d1fbe47014b71c6764d76fb403f217
+anaconda_checksum: sha256:73b51715a12b6382dd4df3dd1905b531bd6792d4aa7273b2377a0436d45f0e78
 
 # when downloading the anaconda binary it might take a while
 # don't let you less great network connection cause the roll to falter
