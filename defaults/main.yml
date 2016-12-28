@@ -7,7 +7,12 @@ anaconda_python_ver : 3
 
 # anaconda version
 anaconda_ver: '4.2.0'
-anaconda_checksum: sha256:73b51715a12b6382dd4df3dd1905b531bd6792d4aa7273b2377a0436d45f0e78
+anaconda_checksums :
+  Anaconda2-4.2.0-Linux-x86_64.sh : sha256:beee286d24fb37dd6555281bba39b3deb5804baec509a9dc5c69185098cf661a
+  Anaconda3-4.2.0-Linux-x86_64.sh : sha256:73b51715a12b6382dd4df3dd1905b531bd6792d4aa7273b2377a0436d45f0e78
+  Anaconda2-4.2.0-MacOSX-x86_64.sh : sha256:a8b3ef86233635d9dcc3499dc384980762a0b42d354a318f8307029c399db452
+  Anaconda3-4.2.0-MacOSX-x86_64.sh : sha256:95448921601e1952e01a17ba9767cd3621c154af7fc52dd6b7f57d462155a358
+  
 
 # when downloading the anaconda binary it might take a while
 # don't let you less great network connection cause the roll to falter
@@ -21,8 +26,4 @@ anaconda_make_sys_default : False
 # idempotent but will be small in terms of layer/image size
 anaconda_cleanup : False
 
-# conda packages to install
-anaconda_pkg_list : []
-
-# conda custom channels to add
-anaconda_custom_channels : []
+anaconda_parent_dir: /usr/local

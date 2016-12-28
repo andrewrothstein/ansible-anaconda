@@ -1,7 +1,7 @@
 andrewrothstein.anaconda
 =========
 
-A role that installs Anaconda
+A role that installs [Anaconda](https://www.continuum.io/anaconda-overview)
 
 Requirements
 ------------

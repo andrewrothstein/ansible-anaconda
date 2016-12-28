@@ -1,60 +1,48 @@
 ---
-- name: download installer.sh
+- name: download Anaconda installer...
   become: yes
   become_user: root
-  get_url: >
+  get_url: >-
     url={{anaconda_installer_url}}
     dest=/tmp/{{anaconda_installer_sh}}
-    mode=0755
     timeout={{anaconda_timeout_seconds}}
     checksum={{anaconda_checksum}}
+    mode=0755
 
-- name: installing conda
+- name: installing Anaconda...
   become: yes
   become_user: root
-  command: /tmp/{{anaconda_installer_sh}} -b -p /opt/{{anaconda_name}}
+  command: /tmp/{{anaconda_installer_sh}} -b -p {{anaconda_parent_dir}}/{{anaconda_name}}
   args:
-    creates: /opt/{{anaconda_name}}/bin/conda
+    creates: '{{anaconda_parent_dir}}/{{anaconda_name}}'
 
-- name: deleting installer...
+- name: deleting Anaconda installer...
   become: yes
   become_user: root
   when: anaconda_cleanup
-  file:
+  file: >-
     path=/tmp/{{anaconda_installer_sh}}
     state=absent
     
 - name: link anaconda...
   become: yes
   become_user: root
-  file:
-    dest=/opt/anaconda
-    src=/opt/{{anaconda_name}}
+  file: >-
+    src={{anaconda_parent_dir}}/{{anaconda_name}}
+    dest={{anaconda_parent_dir}}/anaconda
     state=link
 
-- name: add custom conda channels...
+- name: update conda pkgs...
   become: yes
   become_user: root
-  command: /opt/anaconda/bin/conda config --append channels {{item}}
-  with_items: '{{ anaconda_custom_channels }}'
-
-- name: install additional packages...
-  become: yes
-  become_user: root
-  command: /opt/anaconda/bin/conda install -y {{item}}
-  with_items: '{{ anaconda_pkg_list }}'
-
-- name: conda updates
-  become: yes
-  become_user: root
-  command: /opt/anaconda/bin/conda update -y --all
+  command: '{{anaconda_parent_dir}}/anaconda/bin/conda update -y --all'
 
 - name: remove conda-curl since it conflicts with the system curl
   become: yes
   become_user: root
-  command: /opt/anaconda/bin/conda remove -y curl
+  command: '{{anaconda_parent_dir}}/anaconda/bin/conda remove -y curl'
   args:
-    removes: /opt/anaconda/lib/libcurl.a
+    removes: '{{anaconda_parent_dir}}/anaconda/lib/libcurl.a'
   
 - name: make system default python etc...
   become: yes
