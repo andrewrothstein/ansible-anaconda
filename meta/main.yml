@@ -27,4 +27,6 @@ galaxy_info:
 dependencies:
   - role: andrewrothstein.bash
     version: v1.0.0
+  - role: andrewrothstein.alpine-glibc-shim
+    version: v1.0.0
   
