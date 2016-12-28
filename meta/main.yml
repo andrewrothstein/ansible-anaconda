@@ -25,6 +25,6 @@ galaxy_info:
     - python
 
 dependencies:
-  - role: andrewrothstein.alpine-glibc-shim
+  - role: andrewrothstein.bash
     version: v1.0.0
   
