@@ -16,15 +16,10 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - all
-    - name: Alpine
-      versions:
-        - all
 
   galaxy_tags:
     - anaconda
     - python
 
-dependencies:
-  - role: andrewrothstein.alpine-glibc-shim
-    version: v1.0.0
+dependencies: []
   
