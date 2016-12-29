@@ -50,8 +50,8 @@
   when: anaconda_make_sys_default
   with_items:
     - etc/profile.d/anaconda.sh
-  copy: >-
-    src={{item}}
+  template: >-
+    src={{item}}.j2
     dest=/{{item}}
     mode=0644
     
