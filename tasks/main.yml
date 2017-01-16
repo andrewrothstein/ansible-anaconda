@@ -2,12 +2,12 @@
 - name: download Anaconda installer...
   become: yes
   become_user: root
-  get_url: >-
-    url={{anaconda_installer_url}}
-    dest=/tmp/{{anaconda_installer_sh}}
-    timeout={{anaconda_timeout_seconds}}
-    checksum={{anaconda_checksum}}
-    mode=0755
+  get_url:
+    url: '{{anaconda_installer_url}}'
+    dest: /tmp/{{anaconda_installer_sh}}
+    timeout: '{{anaconda_timeout_seconds}}'
+    checksum: '{{anaconda_checksum}}'
+    mode: '0755'
 
 - name: installing Anaconda...
   become: yes
@@ -20,17 +20,17 @@
   become: yes
   become_user: root
   when: anaconda_cleanup
-  file: >-
-    path=/tmp/{{anaconda_installer_sh}}
-    state=absent
+  file:
+    path: /tmp/{{anaconda_installer_sh}}
+    state: absent
     
 - name: link anaconda...
   become: yes
   become_user: root
-  file: >-
-    src={{anaconda_parent_dir}}/{{anaconda_name}}
-    dest={{anaconda_parent_dir}}/anaconda
-    state=link
+  file:
+    src: '{{anaconda_parent_dir}}/{{anaconda_name}}'
+    dest: '{{anaconda_parent_dir}}/anaconda'
+    state: link
 
 - name: update conda pkgs...
   become: yes
@@ -50,8 +50,8 @@
   when: anaconda_make_sys_default
   with_items:
     - etc/profile.d/anaconda.sh
-  template: >-
-    src={{item}}.j2
-    dest=/{{item}}
-    mode=0644
+  template:
+    src: '{{item}}.j2'
+    dest: /{{item}}
+    mode: '0644'
     

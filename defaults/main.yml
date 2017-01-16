@@ -19,11 +19,11 @@ anaconda_checksums :
 anaconda_timeout_seconds : 600
 
 # add the anaconda python onto the front of your path.
-# Caveat Emptor: if you're OS package manager is python based careful about jamming it
+# Caveat Emptor: if your OS package manager is python based careful about jamming it
 anaconda_make_sys_default : False
 
 # when installed inside a container delete all of the installer artifacts. won't be
-# idempotent but will be small in terms of layer/image size
+# idempotent but will be smaller in terms of layer/image size
 anaconda_cleanup : False
 
 anaconda_parent_dir: /usr/local

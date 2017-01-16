@@ -20,6 +20,7 @@ test:
               - OS=centos_7
               - OS=fedora_23
               - OS=fedora_24
+              - OS=fedora_25
               - OS=ubuntu_trusty
               - OS=ubuntu_xenial
 
