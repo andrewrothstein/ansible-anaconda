@@ -6,12 +6,16 @@ anaconda_mirror : https://repo.continuum.io/archive
 anaconda_python_ver : 3
 
 # anaconda version
-anaconda_ver: '4.2.0'
+anaconda_ver: '4.3.0'
 anaconda_checksums :
   Anaconda2-4.2.0-Linux-x86_64.sh : sha256:beee286d24fb37dd6555281bba39b3deb5804baec509a9dc5c69185098cf661a
   Anaconda3-4.2.0-Linux-x86_64.sh : sha256:73b51715a12b6382dd4df3dd1905b531bd6792d4aa7273b2377a0436d45f0e78
   Anaconda2-4.2.0-MacOSX-x86_64.sh : sha256:a8b3ef86233635d9dcc3499dc384980762a0b42d354a318f8307029c399db452
   Anaconda3-4.2.0-MacOSX-x86_64.sh : sha256:95448921601e1952e01a17ba9767cd3621c154af7fc52dd6b7f57d462155a358
+  Anaconda2-4.3.0-Linux-x86_64.sh : sha256:7c52e6e99aabb24a49880130615a48e685da444c3c14eb48d6a65f3313bf745c
+  Anaconda3-4.3.0-Linux-x86_64.sh : sha256:e9169c3a5029aa820393ac92704eb9ee0701778a085ca7bdc3c57b388ac1beb6
+  Anaconda2-4.3.0-MacOSX-x86_64.sh : sha256:834ac0287062929ab5930661735ee617fd379bdfe79f3e0a20aebd614835b6c5
+  Anaconda3-4.3.0-MacOSX-x86_64.sh : sha256:c53059b810c5e7a9a5ef9c46a7ed76675dfc7183f4ea867b4d81449cbd5a093d
   
 
 # when downloading the anaconda binary it might take a while
