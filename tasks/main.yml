@@ -50,9 +50,11 @@
   become_user: root
   when: anaconda_make_sys_default
   with_items:
-    - etc/profile.d/anaconda.sh
+    - d: /etc/profile.d
+      f: anaconda.sh
+      m: '0644'
   template:
-    src: '{{item}}.j2'
-    dest: /{{item}}
-    mode: '0644'
+    src: '{{item.f}}.j2'
+    dest: '{{item.d}}/{{item.f}}'
+    mode: '{{item.m}}'
     
