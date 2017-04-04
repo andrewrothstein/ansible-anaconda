@@ -6,7 +6,7 @@ machine:
 dependencies:
   pre:
     - sudo -H pip install --upgrade pip
-    - sudo -H pip install circleci-helpers ansible-galaxy-local-deps
+    - sudo -H pip install circleci-helpers ansible-galaxy-local-deps dcb==0.0.11
     - ansible-galaxy-local-deps-write
 
 test:
@@ -24,16 +24,15 @@ test:
               - OS=ubuntu_trusty
               - OS=ubuntu_xenial
 
-            before_script:
-              - env | sort
-              - export UPSTREAM=andrewrothstein/docker-ansible-role
-
             script:
-              - echo "FROM $UPSTREAM:$OS" > Dockerfile.$OS
-              - docker build -t $CIRCLE_PROJECT_REPONAME:$OS -f Dockerfile.$OS .
+              - >-
+                dcb
+                --upstreamgroup andrewrothstein
+                --upstreamapp docker-ansible-role
+                --write ${OS}
+                --build ${OS}
+                --push ${OS}
 
-            after_script:
-              - docker images $CIRCLE_PROJECT_REPONAME:$OS
           EHD
       :
         parallel: true

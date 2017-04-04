@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/andrewrothstein/ansible-anaconda.svg?style=svg)](https://circleci.com/gh/andrewrothstein/ansible-anaconda)
 andrewrothstein.anaconda
 =========
 
