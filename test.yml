@@ -4,3 +4,4 @@
     - role: '{{playbook_dir}}'
       anaconda_make_sys_default: True
       anaconda_cleanup: True
+      anaconda_pkg_update: False
