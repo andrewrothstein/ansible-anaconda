@@ -12,6 +12,10 @@ addons:
     packages:
       - python-pip
 
+branches:
+  except:
+    - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+
 env:
   - OS=alpine_3.3
   - OS=alpine_3.4
