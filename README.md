@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/andrewrothstein/ansible-anaconda.svg?style=svg)](https://circleci.com/gh/andrewrothstein/ansible-anaconda)
+[![Build Status](https://travis-ci.org/andrewrothstein/ansible-anaconda.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-anaconda)
 andrewrothstein.anaconda
 =========
 
