@@ -2,6 +2,8 @@
 andrewrothstein.anaconda
 =========
 
+[![Join the chat at https://gitter.im/ansible-anaconda/Lobby](https://badges.gitter.im/ansible-anaconda/Lobby.svg)](https://gitter.im/ansible-anaconda/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 A role that installs [Anaconda](https://www.continuum.io/anaconda-overview)
 
 Requirements
