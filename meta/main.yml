@@ -28,6 +28,6 @@ dependencies:
   - role: andrewrothstein.bash
     version: v1.0.1
   - role: andrewrothstein.alpine-glibc-shim
-    version: v2.0.0
+    version: v2.0.1
   - role: andrewrothstein.unarchive-deps
-    version: v1.0.7
+    version: v1.0.8
