@@ -13,6 +13,9 @@ galaxy_info:
     - name: Fedora
       versions:
         - all
+    - name: Debian
+      versions:
+        - jessie
     - name: Ubuntu
       versions:
         - all
