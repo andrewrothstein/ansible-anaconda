@@ -25,7 +25,9 @@ galaxy_info:
     - python
 
 dependencies:
-  - role: andrewrothstein.bash
+  - src: andrewrothstein.bash
     version: v1.0.1
-  - role: andrewrothstein.unarchive-deps
+    name: andrewrothstein.bash
+  - src: andrewrothstein.unarchive-deps
     version: v1.0.8
+    name: andrewrothstein.unarchive-deps
