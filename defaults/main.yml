@@ -41,5 +41,6 @@ anaconda_make_sys_default : False
 anaconda_cleanup : False
 
 anaconda_parent_dir: /usr/local
+anaconda_link_subdir: anaconda
 
 anaconda_pkg_update: True

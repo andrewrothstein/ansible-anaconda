@@ -1,5 +1,5 @@
 ---
-- name: download Anaconda installer...
+- name: download installer...
   become: yes
   become_user: root
   get_url:
@@ -7,16 +7,16 @@
     dest: /tmp/{{anaconda_installer_sh}}
     timeout: '{{anaconda_timeout_seconds}}'
     checksum: '{{anaconda_checksum}}'
-    mode: '0755'
+    mode: 0755
 
-- name: installing Anaconda...
+- name: installing...
   become: yes
   become_user: root
-  command: /tmp/{{anaconda_installer_sh}} -b -p {{anaconda_parent_dir}}/{{anaconda_name}}
+  command: /tmp/{{anaconda_installer_sh}} -b -p {{anaconda_install_dir}}
   args:
-    creates: '{{anaconda_parent_dir}}/{{anaconda_name}}'
+    creates: '{{anaconda_install_dir}}'
 
-- name: deleting Anaconda installer...
+- name: deleting installer...
   become: yes
   become_user: root
   when: anaconda_cleanup
@@ -28,22 +28,22 @@
   become: yes
   become_user: root
   file:
-    src: '{{anaconda_parent_dir}}/{{anaconda_name}}'
-    dest: '{{anaconda_parent_dir}}/anaconda'
+    src: '{{anaconda_install_dir}}'
+    dest: '{{anaconda_link_dir}}'
     state: link
 
 - name: update conda pkgs...
   become: yes
   become_user: root
   when: anaconda_pkg_update
-  command: '{{anaconda_parent_dir}}/anaconda/bin/conda update -y --all'
+  command: '{{anaconda_link_dir}}/bin/conda update -y --all'
 
 - name: remove conda-curl since it conflicts with the system curl
   become: yes
   become_user: root
-  command: '{{anaconda_parent_dir}}/anaconda/bin/conda remove -y curl'
+  command: '{{anaconda_conda_bin}} remove -y curl'
   args:
-    removes: '{{anaconda_parent_dir}}/anaconda/lib/libcurl.a'
+    removes: '{{anaconda_link_dir}}/lib/libcurl.a'
   
 - name: make system default python etc...
   become: yes
@@ -52,9 +52,8 @@
   with_items:
     - d: /etc/profile.d
       f: anaconda.sh
-      m: '0644'
   template:
     src: '{{item.f}}.j2'
     dest: '{{item.d}}/{{item.f}}'
-    mode: '{{item.m}}'
+    mode: '{{item.m|default("0644")}}'
     

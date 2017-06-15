@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Andrew Rothstein
-  description: Role that install Anaconda and a bunch of conda packages
+  description: installs Anaconda
   company: BlackRock
   license:
     - MIT
@@ -21,11 +21,12 @@ galaxy_info:
         - all
 
   galaxy_tags:
-    - anaconda
     - python
+    - conda
+    - anaconda
 
 dependencies:
   - src: andrewrothstein.bash
-    version: v1.0.2
+    version: v1.0.3
   - src: andrewrothstein.unarchive-deps
     version: v1.0.8
