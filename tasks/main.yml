@@ -37,6 +37,7 @@
   become_user: root
   when: anaconda_pkg_update
   command: '{{anaconda_link_dir}}/bin/conda update -y --all'
+  changed_when: not anaconda_pkg_update
 
 - name: remove conda-curl since it conflicts with the system curl
   become: yes
