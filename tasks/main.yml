@@ -1,4 +1,14 @@
 ---
+
+- name: install prerequisite packages
+  become: yes
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - bzip2
+    - tar
+
 - name: download installer...
   become: yes
   become_user: root

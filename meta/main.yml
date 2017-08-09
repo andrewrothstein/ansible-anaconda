@@ -25,8 +25,3 @@ galaxy_info:
     - conda
     - anaconda
 
-dependencies:
-  - src: andrewrothstein.bash
-    version: v1.0.4
-  - src: andrewrothstein.unarchive-deps
-    version: v1.0.9
