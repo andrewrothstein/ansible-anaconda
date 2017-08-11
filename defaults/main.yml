@@ -36,9 +36,8 @@ anaconda_timeout_seconds : 600
 # Caveat Emptor: if your OS package manager is python based careful about jamming it
 anaconda_make_sys_default : False
 
-# when installed inside a container delete all of the installer artifacts. won't be
-# idempotent but will be smaller in terms of layer/image size
-anaconda_cleanup : False
+# whether to delete the installer artifacts
+anaconda_install_cleanup: True
 
 anaconda_parent_dir: /usr/local
 anaconda_link_subdir: anaconda
