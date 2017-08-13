@@ -30,7 +30,6 @@
     - name: delete installer...
       become: yes
       become_user: root
-      when: anaconda_install_cleanup
       file:
         path: /tmp/{{anaconda_installer_sh}}
         state: absent
