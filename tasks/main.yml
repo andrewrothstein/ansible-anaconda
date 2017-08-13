@@ -3,11 +3,11 @@
 - name: check for installation of Anaconda
   become: yes
   stat:
-    path: "{{ anaconda_conda_bin }}"
+    path: '{{ anaconda_conda_bin }}'
   changed_when: false
-  register: conda_binary
+  register: anaconda_conda_binary
 
-- when: not conda_binary.stat.exists
+- when: not anaconda_conda_binary.stat.exists
   block:
     - name: download installer...
       become: yes
@@ -61,8 +61,8 @@
   become_user: root
   when: anaconda_make_sys_default
   with_items:
-    - d: /etc/profile.d
-      f: anaconda.sh
+    - f: anaconda.sh
+      d: /etc/profile.d
   template:
     src: '{{item.f}}.j2'
     dest: '{{item.d}}/{{item.f}}'
