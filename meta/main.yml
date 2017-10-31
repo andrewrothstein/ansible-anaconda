@@ -15,11 +15,13 @@ galaxy_info:
         - all
     - name: Debian
       versions:
-        - jessie
+        - all
     - name: Ubuntu
       versions:
         - all
-
+    - name: Archlinux
+      versions:
+        - all
   galaxy_tags:
     - python
     - conda
@@ -27,6 +29,6 @@ galaxy_info:
 
 dependencies:
   - src: andrewrothstein.bash
-    version: v1.0.5
+    version: v1.1.0
   - src: andrewrothstein.unarchive-deps
     version: v1.0.9
