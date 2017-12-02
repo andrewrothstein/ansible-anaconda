@@ -1,0 +1,2 @@
+---
+ansible_anaconda_os_installer_discriminator: '{{ansible_system}}'
