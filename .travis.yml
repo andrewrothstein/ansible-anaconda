@@ -7,6 +7,13 @@ services:
 language: python
 python: "2.7"
 
+matrix:
+  include:
+    - os: osx
+      language: generic
+      env:
+        - OS=darwin
+
 addons:
   apt:
     packages:
@@ -27,13 +34,32 @@ env:
   - OS=debian_stretch
   - OS=ubuntu_trusty
   - OS=ubuntu_xenial
-    
+
 before_install:
+  - >-
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      brew update
+      brew install python
+      brew install md5sha1sum
+      virtualenv venv -p python
+      source venv/bin/activate
+      pip install ansible
+    fi
+
+install:
   - pip install ansible-galaxy-local-deps dcb==0.0.14
   - ansible-galaxy-local-deps-write
+  - >-
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      printf '[defaults]\nroles_path=../' > ansible.cfg
+      if [ -f requirements.yml ]; then
+        ansible-galaxy install -r requirements.yml
+      fi
+    fi
 
 script:
   - >-
+    if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
     dcb
     --upstreamgroup andrewrothstein
     --upstreamapp docker-ansible-role
@@ -41,3 +67,9 @@ script:
     --write ${OS}
     --build ${OS}
     --push ${OS}
+    ;
+    fi
+  - >-
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      ansible-playbook tests/test.yml -i tests/inventory
+    fi
