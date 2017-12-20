@@ -3,8 +3,11 @@
 - name: resolve platform specific vars
   include_vars: "{{ item }}"
   with_first_found:
-    - '{{ ansible_os_family }}.yml'
-    - 'default.yml'
+    - files:
+        - '{{ ansible_os_family }}.yml'
+        - 'default.yml'
+      paths:
+        - '{{ role_path }}/vars'
 
 - name: check for installation of Anaconda
   become: yes
