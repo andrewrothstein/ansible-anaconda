@@ -35,6 +35,10 @@ anaconda_checksums :
   Anaconda3-5.0.1-Linux-x86_64.sh : md5:c989ecc8b648ab8a64731aaee9ed2e7e
   Anaconda2-5.0.1-MacOSX-x86_64.sh : md5:17314016dced36614a3bef8ff3db7066
   Anaconda3-5.0.1-MacOSX-x86_64.sh : md5:3c0f4bf6d9a68d91f6da65051046e106
+  Anaconda2-5.1.0-Linux-x86_64.sh : md5:5b1b5784cae93cf696e11e66983d8756
+  Anaconda3-5.1.0-Linux-x86_64.sh : md5:966406059cf7ed89cc82eb475ba506e5
+  Anaconda2-5.1.0-MacOSX-x86_64.sh : md5:e9845ccf67542523c5be09552311666e
+  Anaconda3-5.1.0-MacOSX-x86_64.sh : md5:047e12523fd287149ecd80c803598429
 
 # when downloading the anaconda binary it might take a while
 # don't let you less great network connection cause the role to falter
