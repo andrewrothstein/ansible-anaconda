@@ -61,9 +61,11 @@
   become: yes
   become_user: root
   command: '{{anaconda_conda_bin}} remove -y curl'
-  args:
-    removes: '{{anaconda_link_dir}}/lib/libcurl.a'
-  
+  register: conda_remove_result
+  changed_when:  (conda_remove_result.stdout | search('The following packages will be REMOVED'))
+  failed_when: conda_remove_result.rc == 1 and not conda_remove_result.stderr | search('PackagesNotFoundError')
+  ignore_errors: yes
+
 - name: make system default python etc...
   become: yes
   become_user: root
