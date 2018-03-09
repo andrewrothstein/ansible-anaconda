@@ -6,7 +6,7 @@ anaconda_mirror : https://repo.continuum.io/archive
 anaconda_python_ver : 3
 
 # anaconda version
-anaconda_ver: '5.0.1'
+anaconda_ver: '5.1.0'
 
 # anaconda checksums...
 # https://repo.continuum.io/archive/
