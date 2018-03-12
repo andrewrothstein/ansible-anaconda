@@ -12,7 +12,7 @@
 - name: check for installation of Anaconda
   become: yes
   stat:
-    path: '{{ anaconda_conda_bin }}'
+    path: '{{ anaconda_install_dir }}/bin/conda'
   changed_when: false
   register: anaconda_conda_binary
 
