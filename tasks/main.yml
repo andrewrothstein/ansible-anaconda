@@ -42,7 +42,7 @@
       file:
         path: /tmp/{{anaconda_installer_sh}}
         state: absent
-    
+
 - name: link anaconda...
   become: yes
   become_user: root
@@ -63,7 +63,7 @@
   command: '{{anaconda_conda_bin}} remove -y curl'
   args:
     removes: '{{anaconda_link_dir}}/lib/libcurl.a'
-  
+
 - name: make system default python etc...
   become: yes
   become_user: root
@@ -75,4 +75,11 @@
     src: '{{item.f}}.j2'
     dest: '{{item.d}}/{{item.f}}'
     mode: '{{item.m|default("0644")}}'
-    
+
+- name: install additional packages
+  become: yes
+  become_user: root
+  command: "{{anaconda_conda_bin}} install -y {{item}}"
+  register: conda_install_result
+  changed_when: not (conda_install_result.stdout | search('All requested packages already installed'))
+  with_items: "{{anaconda_install_packages}}"
