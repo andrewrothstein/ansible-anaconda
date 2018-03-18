@@ -40,7 +40,8 @@ before_install:
   - >-
     if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       brew update
-      brew install python
+      brew upgrade openssl || brew install openssl || true
+      brew upgrade python || brew install python || true
       brew install md5sha1sum
       virtualenv venv -p python
       source venv/bin/activate
