@@ -39,10 +39,9 @@ env:
 before_install:
   - >-
     if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      brew update
       brew upgrade openssl || brew install openssl || true
-      brew upgrade python || brew install python || true
-      brew install md5sha1sum
+      brew upgrade python@2 || brew install python@2 || true
+      brew upgrade md5sha1sum || brew install md5sha1sum || true
       virtualenv venv -p python
       source venv/bin/activate
       pip install ansible
