@@ -60,9 +60,10 @@
 - name: remove conda-curl since it conflicts with the system curl
   become: yes
   become_user: root
-  command: '{{anaconda_conda_bin}} remove -y curl'
-  args:
-    removes: '{{anaconda_link_dir}}/lib/libcurl.a'
+  conda:
+    name: curl
+    state: absent
+    executable: '{{ anaconda_conda_bin }}'
 
 - name: make system default python etc...
   become: yes
