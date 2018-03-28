@@ -1,0 +1,44 @@
+---
+
+- include: install.yml
+- include: tear-down.yml
+
+- block:
+    - include: test-uninstall.yml
+  always:
+    - include: tear-down.yml
+
+- block:
+    - include: test-install-latest.yml
+  always:
+    - include: tear-down.yml
+
+- block:
+    - include: test-install-fixed-version.yml
+  always:
+    - include: tear-down.yml
+
+- block:
+    - include: test-install-loosely-fixed-version.yml
+  always:
+    - include: tear-down.yml
+
+- block:
+    - include: test-upgrade.yml
+  always:
+    - include: tear-down.yml
+
+- block:
+    - include: test-downgrade.yml
+  always:
+    - include: tear-down.yml
+
+- block:
+    - include: test-invalid-setups.yml
+  always:
+    - include: tear-down.yml
+
+- block:
+    - include: test-failures.yml
+  always:
+    - include: tear-down.yml
