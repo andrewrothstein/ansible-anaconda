@@ -9,81 +9,11 @@
       paths:
         - '{{ role_path }}/vars'
 
-- name: check for installation of Anaconda
-  become: yes
-  stat:
-    path: '{{ anaconda_install_dir }}/bin/conda'
-  changed_when: false
-  register: anaconda_conda_binary
-
-- when: not anaconda_conda_binary.stat.exists
-  block:
-    - name: download installer...
-      become: yes
-      become_user: root
-      get_url:
-        url: '{{anaconda_installer_url}}'
-        dest: /tmp/{{anaconda_installer_sh}}
-        timeout: '{{anaconda_timeout_seconds}}'
-        checksum: '{{anaconda_checksum}}'
-        mode: 0755
-
-    - name: install...
-      become: yes
-      become_user: root
-      command: /tmp/{{anaconda_installer_sh}} -b -p {{anaconda_install_dir}}
-      args:
-        creates: '{{anaconda_install_dir}}'
-
-  always:
-    - name: delete installer...
-      become: yes
-      become_user: root
-      file:
-        path: /tmp/{{anaconda_installer_sh}}
-        state: absent
-
-- name: link anaconda...
-  become: yes
-  become_user: root
-  file:
-    src: '{{anaconda_install_dir}}'
-    dest: '{{anaconda_link_dir}}'
-    state: link
-
-- name: update conda pkgs...
-  become: yes
-  become_user: root
-  when: anaconda_pkg_update
-  command: '{{anaconda_link_dir}}/bin/conda update -y --all'
-
-- name: remove conda-curl since it conflicts with the system curl
-  become: yes
-  become_user: root
-  conda:
-    name: curl
-    state: absent
-    executable: '{{ anaconda_conda_bin }}'
-
-- name: make system default python etc...
-  become: yes
-  become_user: root
-  when: anaconda_make_sys_default
-  with_items:
-    - f: anaconda.sh
-      d: /etc/profile.d
-  template:
-    src: '{{item.f}}.j2'
-    dest: '{{item.d}}/{{item.f}}'
-    mode: '{{item.m|default("0644")}}'
-
-- name: install additional packages
-  become: yes
-  become_user: root
-  conda:
-    name: "{{ item }}"
-    state: present
-    executable: "{{ anaconda_conda_bin }}"
-  register: conda_install_result
-  changed_when: not (conda_install_result.stdout | search('All requested packages already installed'))
-  with_items: "{{anaconda_install_packages}}"
+- name: resolve platform specific tasks
+  include_tasks: "{{ item }}"
+  with_first_found:
+    - files:
+        - '{{ ansible_os_family }}.yml'
+        - 'default.yml'
+      paths:
+        - '{{ role_path }}/tasks'
