@@ -1,0 +1,9 @@
+---
+anaconda_os_installer_discriminator: Windows
+anaconda_platform: '{{ anaconda_os_installer_discriminator }}-x86_64'
+anaconda_installer_sh : '{{ anaconda_name }}.exe'
+anaconda_checksum : "{{ anaconda_checksums[anaconda_installer_sh] | regex_replace('^md5:', '') }}"
+
+anaconda_install_dir: '{{ anaconda_parent_dir }}\Anaconda{{ anaconda_python_ver }}'
+
+anaconda_conda_bin: '{{ anaconda_install_dir }}\Scripts\conda.exe'
