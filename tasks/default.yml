@@ -76,6 +76,4 @@
     state: present
     executable: "{{ anaconda_conda_bin }}"
     channels: "{{ anaconda_install_channels }}"
-  register: conda_install_result
-  changed_when: not (conda_install_result.stdout | search('All requested packages already installed'))
   with_items: "{{anaconda_install_packages}}"
