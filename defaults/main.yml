@@ -71,6 +71,8 @@ anaconda_link_subdir: anaconda
 
 anaconda_pkg_update: True
 anaconda_install_packages: []
+anaconda_install_channels: ""
+# e.g.: anaconda_install_channels: "defaults conda-forge bioconda"
 
 # additional control over windows-installer specific options
 win_anaconda_installation_type: JustMe
