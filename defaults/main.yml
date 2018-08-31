@@ -10,7 +10,7 @@ anaconda_ver: '5.1.0'
 
 # anaconda checksums...
 # https://repo.continuum.io/archive/
-anaconda_checksums :
+anaconda_checksums:
   Anaconda2-4.2.0-Linux-x86_64.sh: sha256:beee286d24fb37dd6555281bba39b3deb5804baec509a9dc5c69185098cf661a
   Anaconda3-4.2.0-Linux-x86_64.sh: sha256:73b51715a12b6382dd4df3dd1905b531bd6792d4aa7273b2377a0436d45f0e78
   Anaconda2-4.2.0-MacOSX-x86_64.sh: sha256:a8b3ef86233635d9dcc3499dc384980762a0b42d354a318f8307029c399db452
