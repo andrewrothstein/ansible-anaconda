@@ -75,6 +75,5 @@
     name: "{{ item }}"
     state: present
     executable: "{{ anaconda_conda_bin }}"
-  register: conda_install_result
-  changed_when: not (conda_install_result.stdout | search('All requested packages already installed'))
+    channels: "{{ anaconda_install_channels }}"
   with_items: "{{anaconda_install_packages}}"
