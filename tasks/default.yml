@@ -72,8 +72,8 @@
   become: yes
   become_user: root
   conda:
-    name: "{{ item }}"
+    name: '{{ item }}'
     state: present
-    executable: "{{ anaconda_conda_bin }}"
-    channels: "{{ anaconda_install_channels }}"
-  with_items: "{{anaconda_install_packages}}"
+    executable: '{{ anaconda_conda_bin }}'
+    channels: '{{ anaconda_install_channels | default("") }}'
+  with_items: '{{anaconda_install_packages | default([])}}'

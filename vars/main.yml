@@ -1,9 +1,9 @@
 ---
 anaconda_platform: '{{anaconda_os_installer_discriminator}}-{{ansible_machine}}'
-anaconda_name : 'Anaconda{{anaconda_python_ver}}-{{anaconda_ver}}-{{anaconda_platform}}'
-anaconda_installer_sh : '{{anaconda_name}}.sh'
-anaconda_installer_url : '{{anaconda_mirror}}/{{anaconda_installer_sh}}'
-anaconda_checksum : '{{anaconda_checksums[anaconda_installer_sh]}}'
+anaconda_name: 'Anaconda{{anaconda_python_ver}}-{{anaconda_ver}}-{{anaconda_platform}}'
+anaconda_installer_sh: '{{anaconda_name}}.sh'
+anaconda_installer_url: '{{anaconda_mirror}}/{{anaconda_installer_sh}}'
+anaconda_checksum: '{{anaconda_checksums[anaconda_installer_sh]}}'
 
 anaconda_install_dir: '{{anaconda_parent_dir}}/{{anaconda_name}}'
 anaconda_link_dir: '{{anaconda_parent_dir}}/{{anaconda_link_subdir}}'
