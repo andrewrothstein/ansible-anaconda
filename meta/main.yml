@@ -32,5 +32,5 @@ dependencies:
     version: v1.1.1
     when: ansible_os_family != 'Windows'
   - src: andrewrothstein.unarchive-deps
-    version: v1.0.9
+    version: v1.0.10
     when: ansible_os_family != 'Windows'
