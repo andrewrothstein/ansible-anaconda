@@ -64,16 +64,20 @@
     - f: anaconda.sh
       d: /etc/profile.d
   template:
-    src: '{{item.f}}.j2'
-    dest: '{{item.d}}/{{item.f}}'
-    mode: '{{item.m|default("0644")}}'
+    src: '{{ to_template.f }}.j2'
+    dest: '{{ to_template.d }}/{{ to_template.f }}'
+    mode: '{{ to_template.m | default("0644") }}'
+  loop_control:
+    loop_var: to_template
 
 - name: install additional packages
   become: yes
   become_user: root
   conda:
-    name: '{{ item }}'
+    name: '{{ anaconda_pkg }}'
     state: present
     executable: '{{ anaconda_conda_bin }}'
     channels: '{{ anaconda_install_channels | default("") }}'
   with_items: '{{anaconda_install_packages | default([])}}'
+  loop_control:
+    loop_var: anaconda_pkg
