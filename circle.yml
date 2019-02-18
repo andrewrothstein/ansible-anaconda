@@ -6,7 +6,7 @@ machine:
 dependencies:
   pre:
     - sudo -H pip install --upgrade pip
-    - sudo -H pip install circleci-helpers ansible-galaxy-local-deps dcb==0.0.14
+    - sudo -H pip install circleci-helpers ansible-galaxy-local-deps dcb==0.0.16
     - ansible-galaxy-local-deps-write
 
 test:
@@ -22,6 +22,7 @@ test:
               - OS=fedora_26
               - OS=fedora_27
               - OS=fedora_28
+              - OS=fedora_29
               - OS=debian_jessie
               - OS=debian_stretch
               - OS=ubuntu_trusty

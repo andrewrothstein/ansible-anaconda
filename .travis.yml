@@ -1,16 +1,12 @@
 ---
+dist: xenial
 sudo: required
 
 services:
   - docker
 
 language: python
-python: "2.7"
-
-addons:
-  apt:
-    packages:
-      - python-pip
+python: 3.5
 
 branches:
   except:
@@ -25,6 +21,7 @@ env:
   - OS=fedora_26
   - OS=fedora_27
   - OS=fedora_28
+  - OS=fedora_29
   - OS=debian_jessie
   - OS=debian_stretch
   - OS=ubuntu_trusty
@@ -35,7 +32,7 @@ before_install:
   - >-
     if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       brew upgrade openssl || brew install openssl || true
-      brew upgrade python@2 || brew install python@2 || true
+      brew upgrade python@3 || brew install python@3 || true
       brew upgrade md5sha1sum || brew install md5sha1sum || true
       virtualenv venv -p python
       source venv/bin/activate
@@ -43,7 +40,7 @@ before_install:
     fi
 
 install:
-  - pip install ansible-galaxy-local-deps dcb==0.0.14
+  - pip install ansible-galaxy-local-deps dcb==0.0.16
   - ansible-galaxy-local-deps-write
 
 script:
