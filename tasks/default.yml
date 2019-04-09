@@ -22,7 +22,7 @@
     - name: install...
       become: yes
       become_user: root
-      command: /tmp/{{anaconda_installer_sh}} -b -p {{anaconda_install_dir}}
+      command: bash /tmp/{{anaconda_installer_sh}} -b -p {{anaconda_install_dir}}
       args:
         creates: '{{anaconda_install_dir}}'
 

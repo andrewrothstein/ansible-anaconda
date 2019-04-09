@@ -28,9 +28,9 @@ galaxy_info:
     - anaconda
 
 dependencies:
-  - src: andrewrothstein.bash
-    version: v1.1.1
+  - role: andrewrothstein.bash
+    version: v1.1.2
     when: ansible_os_family != 'Windows'
-  - src: andrewrothstein.unarchive-deps
-    version: v1.0.10
+  - role: andrewrothstein.unarchive-deps
+    version: v1.0.11
     when: ansible_os_family != 'Windows'
