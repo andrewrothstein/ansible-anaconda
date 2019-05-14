@@ -1,0 +1,2 @@
+ansible-galaxy-local-deps == 0.0.14
+dcb == 0.0.17
