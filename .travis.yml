@@ -14,6 +14,7 @@ env:
 - OS=fedora_27
 - OS=fedora_28
 - OS=fedora_29
+- OS=fedora_30
 - OS=ubuntu_bionic
 - OS=ubuntu_trusty
 - OS=ubuntu_xenial
