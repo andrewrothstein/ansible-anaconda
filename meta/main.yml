@@ -1,36 +1,32 @@
----
+dependencies:
+- role: andrewrothstein.bash
+  version: v1.1.2
+- role: andrewrothstein.unarchive-deps
+  version: v1.0.12
 galaxy_info:
   author: Andrew Rothstein
-  description: installs Anaconda
   company: BlackRock
+  description: installs Anaconda
+  galaxy_tags:
+  - python
+  - conda
+  - anaconda
   license:
-    - MIT
+  - MIT
   min_ansible_version: 2.0
   platforms:
-    - name: EL
-      versions:
-        - all
-    - name: Fedora
-      versions:
-        - all
-    - name: Debian
-      versions:
-        - all
-    - name: Ubuntu
-      versions:
-        - all
-    - name: Archlinux
-      versions:
-        - all
-  galaxy_tags:
-    - python
-    - conda
-    - anaconda
-
-dependencies:
-  - role: andrewrothstein.bash
-    version: v1.1.2
-    when: ansible_os_family != 'Windows'
-  - role: andrewrothstein.unarchive-deps
-    version: v1.0.11
-    when: ansible_os_family != 'Windows'
+  - name: EL
+    versions:
+    - all
+  - name: Fedora
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  - name: Archlinux
+    versions:
+    - all
