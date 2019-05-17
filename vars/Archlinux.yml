@@ -1,0 +1,4 @@
+---
+anaconda_os_installer_discriminator: '{{ansible_system}}'
+anaconda_dep_pkgs:
+  - grep

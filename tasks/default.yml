@@ -1,4 +1,13 @@
 ---
+- name: install OS pkg dependencies
+  become: yes
+  become_user: root
+  with_items: '{{ anaconda_dep_pkgs | default([]) }}'
+  loop_control:
+    loop_var: anaconda_os_pkg
+  package:
+    state: present
+    name: '{{ anaconda_os_pkg }}'
 
 - name: check for installation of Anaconda
   become: yes
