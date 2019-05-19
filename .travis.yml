@@ -1,7 +1,7 @@
-before_install: if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade openssl ||
-  brew install openssl || true brew upgrade python@3 || brew install python@3 || true
-  brew upgrade md5sha1sum || brew install md5sha1sum|| true virtualenv venv -p python
-  source venv/bin/activate pip install ansible fi
+before_install: "if [[ \"$TRAVIS_OS_NAME\" == \"osx\" ]]\nthen\n  brew upgrade openssl\
+  \ || brew install openssl || true\n  brew upgrade python@3 || brew install python@3\
+  \ || true\n  brew upgrade md5sha1sum || brew install md5sha1sum || true\n  virtualenv\
+  \ venv -p python\n  source venv/bin/activate\n  pip install ansible\nfi"
 branches:
   except:
   - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
