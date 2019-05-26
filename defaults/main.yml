@@ -6,7 +6,7 @@ anaconda_mirror: https://repo.continuum.io/archive
 anaconda_python_ver: 3
 
 # anaconda version
-anaconda_ver: '2018.12'
+anaconda_ver: '2019.03'
 
 # anaconda checksums...
 # https://repo.continuum.io/archive/
@@ -69,6 +69,16 @@ anaconda_checksums:
   Anaconda3-2018.12-MacOSX-x86_64.sh: md5:910c8f411f16b02813b3a2cd95462a81
   Anaconda3-2018.12-Windows-x86.exe: md5:dc26da1eea1e5cc78121b1d3f80a6e9c
   Anaconda3-2018.12-Windows-x86_64.exe: md5:8d068f924a77e8d015906e81e91b31ab
+  Anaconda2-2019.03-Linux-ppc64le.sh: md5:ec65edf84f63c64a876aabc704a090b97
+  Anaconda2-2019.03-Linux-x86_64.sh: md5:dd87c316e211891df8889c52d9167a5d
+  Anaconda2-2019.03-MacOSX-x86_64.sh: md5:fc7f811d92e39c17c20fac1f43200043
+  Anaconda2-2019.03-Windows-x86.exe: md5:4b055a00f4f99352bd29db7a4f691f6e
+  Anaconda2-2019.03-Windows-x86_64.exe: md5:042809940fb2f60d979eac02fc4e6c82
+  Anaconda3-2019.03-Linux-ppc64le.sh: md5:510c8d6f10f2ffad0b185adbbdddf7f9
+  Anaconda3-2019.03-Linux-x86_64.sh: md5:43caea3d726779843f130a7fb2d380a2
+  Anaconda3-2019.03-MacOSX-x86_64.sh: md5:46709a416be6934a7fd5d02b021d2687
+  Anaconda3-2019.03-Windows-x86.exe: md5:f1f636e5d34d129b6b996ff54f4a05b1
+  Anaconda3-2019.03-Windows-x86_64.exe: md5:bfb4da8555ef5b1baa064ef3f0c7b582
 
 # when downloading the anaconda binary it might take a while
 # don't let you less great network connection cause the role to falter
