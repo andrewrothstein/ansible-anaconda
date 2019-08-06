@@ -9,6 +9,7 @@ dist: xenial
 env:
 - OS=archlinux_latest
 - OS=centos_7
+- OS=debian_buster
 - OS=debian_jessie
 - OS=debian_stretch
 - OS=fedora_23
@@ -26,8 +27,8 @@ language: python
 python: '3.7'
 script:
 - ansible-galaxy-local-deps-write
-- dcb --upstreamgroup andrewrothstein --upstreamapp docker-ansible-role --alltags
-  ${OS} --pullall --writeall --buildall --pushall
+- dcb --upstreamgroup andrewrothstein --upstreamapp docker-ansible-role --pullall
+  --writeall --buildall --pushall --alltags ${OS}
 services:
 - docker
 sudo: required

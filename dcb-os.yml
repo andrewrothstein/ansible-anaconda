@@ -1,5 +1,6 @@
 - archlinux_latest
 - centos_7
+- debian_buster
 - debian_jessie
 - debian_stretch
 - fedora_23
