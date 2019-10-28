@@ -20,6 +20,7 @@ env:
 - OS=fedora_28
 - OS=fedora_29
 - OS=fedora_30
+- OS=ubi8_8.0
 - OS=ubuntu_bionic
 - OS=ubuntu_trusty
 - OS=ubuntu_xenial
