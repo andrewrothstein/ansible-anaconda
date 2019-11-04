@@ -11,7 +11,8 @@
 - fedora_28
 - fedora_29
 - fedora_30
+- fedora_31
+- fedora_32
 - ubi8_8.0
 - ubuntu_bionic
-- ubuntu_trusty
 - ubuntu_xenial
