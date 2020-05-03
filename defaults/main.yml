@@ -6,7 +6,32 @@ anaconda_mirror: https://repo.continuum.io/archive
 anaconda_python_ver: 3
 
 # anaconda version
-anaconda_ver: '2019.10'
+anaconda_ver: '2020.02'
+
+# when downloading the anaconda binary it might take a while
+# don't let you less great network connection cause the role to falter
+anaconda_timeout_seconds: 600
+
+# add the anaconda python onto the front of your path.
+# Caveat Emptor: if your OS package manager is python based careful about jamming it
+anaconda_make_sys_default: False
+
+anaconda_parent_dir: "{{ ansible_env.USERPROFILE + '\\AppData\\Local\\Continuum' if ansible_os_family == 'Windows' else '/usr/local' }}"
+anaconda_link_subdir: anaconda
+
+anaconda_pkg_update: True
+
+# install a a list of packages into the root conda env. please consider using conda envs effectively!
+#anaconda_install_packages:
+#  - package1
+#  - package2
+
+# control the install channels
+#anaconda_install_channels: "defaults conda-forge bioconda"
+
+# additional control over windows-installer specific options
+win_anaconda_installation_type: JustMe
+win_anaconda_add_to_path: True
 
 # anaconda checksums...
 # https://repo.continuum.io/archive/
@@ -89,29 +114,11 @@ anaconda_checksums:
   Anaconda3-2019.10-MacOSX-x86_64.sh: md5:1a56194e89795b7ebbfe405b09d9c42d
   Anaconda3-2019.10-Windows-x86.exe: md5:0e71632df6a17f625c1103b34f66e8ba
   Anaconda3-2019.10-Windows-x86_64.exe: md5:fafcdbf5feb6dc3081bf07cbb8af1dbe
-
-
-# when downloading the anaconda binary it might take a while
-# don't let you less great network connection cause the role to falter
-anaconda_timeout_seconds: 600
-
-# add the anaconda python onto the front of your path.
-# Caveat Emptor: if your OS package manager is python based careful about jamming it
-anaconda_make_sys_default: False
-
-anaconda_parent_dir: "{{ ansible_env.USERPROFILE + '\\AppData\\Local\\Continuum' if ansible_os_family == 'Windows' else '/usr/local' }}"
-anaconda_link_subdir: anaconda
-
-anaconda_pkg_update: True
-
-# install a a list of packages into the root conda env. please consider using conda envs effectively!
-#anaconda_install_packages:
-#  - package1
-#  - package2
-
-# control the install channels
-#anaconda_install_channels: "defaults conda-forge bioconda"
-
-# additional control over windows-installer specific options
-win_anaconda_installation_type: JustMe
-win_anaconda_add_to_path: True
+  # https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-ppc64le.sh
+  Anaconda3-2020.02-Linux-ppc64le.sh: sha256:d6d1827a38b988cbbe714d6e0357c9e251c84641a0c70cda51861ed9abb38804
+  # https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
+  Anaconda3-2020.02-Linux-x86_64.sh: sha256:2b9f088b2022edb474915d9f69a803d6449d5fdb4c303041f60ac4aefcc208bb
+  # https://repo.anaconda.com/archive/Anaconda3-2020.02-MacOSX-x86_64.sh
+  Anaconda3-2020.02-MacOSX-x86_64.sh: sha256:d237e6c976eb9c58368ca156a51bd913d63a3b5fea32689342733c99d14b6f2e
+  # https://repo.anaconda.com/archive/Anaconda3-2020.02-Windows-x86_64.exe
+  Anaconda3-2020.02-Windows-x86_64.exe: sha256:83c2f53c7174253adcc2de7d1293a7408c37b295abbbb8feca32cb8428a26158
