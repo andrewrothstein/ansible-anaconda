@@ -7,8 +7,8 @@ branches:
   - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
 dist: xenial
 env:
-- OS=alpine_3.10
 - OS=alpine_3.11
+- OS=alpine_3.12
 - OS=alpine_edge
 - OS=archlinux_latest
 - OS=centos_7
@@ -17,9 +17,11 @@ env:
 - OS=debian_stretch
 - OS=fedora_31
 - OS=fedora_32
-- OS=ubi8_8.0
+- OS=gentoo_latest
 - OS=ubi8_8.1
+- OS=ubi8_8.2
 - OS=ubuntu_bionic
+- OS=ubuntu_focal
 - OS=ubuntu_xenial
 language: python
 python: '3.7'

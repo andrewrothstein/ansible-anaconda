@@ -1,10 +1,10 @@
 dependencies:
 - role: andrewrothstein.alpine-glibc-shim
-  version: v2.0.11
+  version: v2.0.12
 - role: andrewrothstein.bash
-  version: v1.1.4
+  version: v1.1.6
 - role: andrewrothstein.unarchive-deps
-  version: v1.1.2
+  version: v1.1.5
 galaxy_info:
   author: Andrew Rothstein
   company: BlackRock
@@ -17,18 +17,29 @@ galaxy_info:
   - MIT
   min_ansible_version: 2.0
   platforms:
-  - name: EL
-    versions:
-    - all
-  - name: Fedora
-    versions:
-    - all
-  - name: Debian
-    versions:
-    - all
-  - name: Ubuntu
+  - name: Alpine
     versions:
     - all
   - name: Archlinux
     versions:
     - all
+  - name: Debian
+    versions:
+    - buster
+    - stretch
+  - name: EL
+    versions:
+    - 7
+    - 8
+  - name: Fedora
+    versions:
+    - 31
+    - 32
+  - name: Gentoo
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - bionic
+    - focal
+    - xenial
