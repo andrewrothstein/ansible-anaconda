@@ -57,5 +57,3 @@
       - upgrade_install.changed
       - example_package.installed
       - example_package.version | version_compare(conda_tests_minimum_latest_version, '>=')
-
-
