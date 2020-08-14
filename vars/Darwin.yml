@@ -1,2 +1,2 @@
 ---
-anaconda_os_installer_discriminator: '{{ansible_distribution}}'
+anaconda_os_installer_discriminator: '{{ ansible_distribution }}'
