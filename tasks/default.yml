@@ -22,40 +22,40 @@
       become: yes
       become_user: root
       get_url:
-        url: '{{anaconda_installer_url}}'
-        dest: /tmp/{{anaconda_installer_sh}}
-        timeout: '{{anaconda_timeout_seconds}}'
-        checksum: '{{anaconda_checksum}}'
+        url: '{{ anaconda_installer_url }}'
+        dest: /tmp/{{ anaconda_installer_sh }}
+        timeout: '{{ anaconda_timeout_seconds }}'
+        checksum: '{{ anaconda_checksum }}'
         mode: 0755
 
     - name: install...
       become: yes
       become_user: root
-      command: bash /tmp/{{anaconda_installer_sh}} -b -p {{anaconda_install_dir}}
+      command: bash /tmp/{{ anaconda_installer_sh }} -b -p {{ anaconda_install_dir }}
       args:
-        creates: '{{anaconda_install_dir}}'
+        creates: '{{ anaconda_install_dir }}'
 
   always:
     - name: delete installer...
       become: yes
       become_user: root
       file:
-        path: /tmp/{{anaconda_installer_sh}}
+        path: /tmp/{{ anaconda_installer_sh }}
         state: absent
 
 - name: link anaconda...
   become: yes
   become_user: root
   file:
-    src: '{{anaconda_install_dir}}'
-    dest: '{{anaconda_link_dir}}'
+    src: '{{ anaconda_install_dir }}'
+    dest: '{{ anaconda_link_dir }}'
     state: link
 
 - name: update conda pkgs...
   become: yes
   become_user: root
   when: anaconda_pkg_update
-  command: '{{anaconda_link_dir}}/bin/conda update -y --all'
+  command: '{{ anaconda_link_dir }}/bin/conda update -y --all'
 
 - name: remove conda-curl since it conflicts with the system curl
   become: yes
@@ -87,6 +87,6 @@
     state: present
     executable: '{{ anaconda_conda_bin }}'
     channels: '{{ anaconda_install_channels | default("") }}'
-  with_items: '{{anaconda_install_packages | default([])}}'
+  with_items: '{{ anaconda_install_packages | default([]) }}'
   loop_control:
     loop_var: anaconda_pkg

@@ -1,5 +1,4 @@
 ---
-
 - name: check for existance of Anaconda
   win_stat:
     path: '{{ anaconda_conda_bin }}'
@@ -11,7 +10,7 @@
     anaconda_installer_dest: '{{ ansible_env.TEMP }}\{{ anaconda_installer_sh }}'
   block:
     - name: download installer...
-      win_get_url: 
+      win_get_url:
         url: '{{ anaconda_installer_url }}'
         dest: '{{ anaconda_installer_dest }}'
         timeout: '{{ anaconda_timeout_seconds }}'
@@ -23,15 +22,15 @@
         checksum_algorithm: md5
         get_checksum: yes
       register: anaconda_installer_
-    
+
     - name: verify installer checksum
-      vars: 
+      vars:
         checksum: '{{ anaconda_installer_.stat.checksum }}'
       assert:
         that:
           - 'checksum == anaconda_checksum'
         msg: 'anaconda installer checksum mismatch'
-    
+
     - name: install...
       win_package:
         path: '{{ anaconda_installer.dest }}'
@@ -43,9 +42,9 @@
           - /RegisterPython={{ anaconda_make_sys_default | int }}
           - /S
           - /D={{ anaconda_install_dir }}
-    
+
   always:
     - name: delete installer...
-      win_file: 
+      win_file:
         path: '{{ anaconda_installer_dest }}'
         state: absent
