@@ -11,9 +11,10 @@
 
 - name: verify installed
   assert:
-    that: first_install.changed
-    that: example_package.installed
-    that: example_package.version | version_compare(conda_tests_minimum_latest_version, '>=')
+    that:
+      - first_install.changed
+      - example_package.installed
+      - example_package.version | version_compare(conda_tests_minimum_latest_version, '>=')
 
 # TODO: Until tests are ran against local package repository, this test would be flaky in the (rare) case that the
 # package is updated mid-test
@@ -42,8 +43,9 @@
 
     - name: verify installed
       assert:
-        that: larger_install.changed
-        that: example_package.installed
+        that:
+          - larger_install.changed
+          - example_package.installed
 
   always:
     - include: tear-down.yml

@@ -18,8 +18,9 @@
 
 - name: verify package not installed
   assert:
-    that: first_uninstall.changed
-    that: not example_package.installed
+    that:
+      - first_uninstall.changed
+      - not example_package.installed
 
 - name: uninstall Conda package again
   conda:
