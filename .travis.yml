@@ -5,7 +5,7 @@ before_install: "if [[ \"$TRAVIS_OS_NAME\" == \"osx\" ]]\nthen\n  brew upgrade o
 branches:
   except:
   - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
-dist: xenial
+dist: focal
 env:
 - OS=alpine_3.11
 - OS=alpine_3.12
@@ -24,7 +24,7 @@ env:
 - OS=ubuntu_focal
 - OS=ubuntu_xenial
 language: python
-python: '3.7'
+python: '3.9'
 script:
 - ansible-galaxy-local-deps-write
 - dcb --upstreamgroup andrewrothstein --upstreamapp docker-ansible-role --pullall
