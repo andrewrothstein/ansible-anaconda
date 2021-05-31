@@ -138,3 +138,11 @@ anaconda_checksums:
   Anaconda3-2020.11-MacOSX-x86_64.sh: sha256:ec11e325c792a6f49dbdbe5e641991d0a29788689176d7e54da97def9532c762
   # https://repo.anaconda.com/archive/Anaconda3-2020.11-Windows-x86_64.exe
   Anaconda3-2020.11-Windows-x86_64.exe: sha256:aa523115daf31c431bb392faf75e70d35ada935e36dc7b1dd8902baee240bcc1
+  # https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-ppc64le.sh
+  Anaconda3-2021.05-Linux-ppc64le.sh: sha256:097064807a9adae3f91fc4c5852cd90df2b77fc96505929bb25bf558f1eef76f
+  # https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh
+  Anaconda3-2021.05-Linux-x86_64.sh: sha256:2751ab3d678ff0277ae80f9e8a74f218cfc70fe9a9cdc7bb1c137d7e47e33d53
+  # https://repo.anaconda.com/archive/Anaconda3-2021.05-MacOSX-x86_64.sh
+  Anaconda3-2021.05-MacOSX-x86_64.sh: sha256:0407bee87eeecad521f1e38eb607b0a85babef4c1b47516dc5c090e152eba5d5
+  # https://repo.anaconda.com/archive/Anaconda3-2021.05-Windows-x86_64.exe
+  Anaconda3-2021.05-Windows-x86_64.exe: sha256:93db42390444019e98b442ab281e1091671b6dce64daf08928d337ffc83cf3d2
