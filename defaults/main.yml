@@ -6,7 +6,7 @@ anaconda_mirror: https://repo.continuum.io/archive
 anaconda_python_ver: 3
 
 # anaconda version
-anaconda_ver: '2020.11'
+anaconda_ver: '2021.05'
 
 # when downloading the anaconda binary it might take a while
 # don't let you less great network connection cause the role to falter
