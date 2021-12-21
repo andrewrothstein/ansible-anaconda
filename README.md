@@ -1,6 +1,6 @@
 andrewrothstein.anaconda
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-anaconda.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-anaconda)
+![Build Status](https://github.com/andrewrothstein/ansible-anaconda/actions/workflows/build.yml/badge.svg)
 
 [![Join the chat at https://gitter.im/andrewrothstein/ansible-anaconda](https://badges.gitter.im/andrewrothstein/ansible-anaconda.svg)](https://gitter.im/andrewrothstein/ansible-anaconda?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 

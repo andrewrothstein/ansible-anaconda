@@ -1,0 +1,41 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install Python dependencies
+      run: 'python -m pip install --upgrade pip
+
+        if [ -f requirements.txt ]; then python -m pip install -r requirements.txt;
+        fi'
+    - name: Generate requirements.yml
+      run: ansible-galaxy-local-deps-write
+    - name: 'dcb #ftw'
+      run: dcb --targetregistry ghcr.io --upstreamgroup andrewrothstein --upstreamapp
+        docker-ansible --targetregistry ghcr.io --targetuser ${{ github.actor }} --targetpwd
+        ${{ github.token }} --snippet from.j2 ansible-test-role.j2 --pullall --writeall
+        --buildall --pushall --alltags ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+        - alpine_3.14
+        - alpine_3.15
+        - alpine_edge
+        - archlinux_latest
+        - centos_8
+        - debian_bullseye
+        - fedora_34
+        - fedora_35
+        - rockylinux_8.4
+        - rockylinux_8.5
+        - ubuntu_bionic
+        - ubuntu_focal
+        python-versions:
+        - '3.9'
+name: dcb
+'on':
+- push
