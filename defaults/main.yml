@@ -6,7 +6,7 @@ anaconda_mirror: https://repo.continuum.io/archive
 anaconda_python_ver: 3
 
 # anaconda version
-anaconda_ver: '2021.05'
+anaconda_ver: '2021.11'
 
 # when downloading the anaconda binary it might take a while
 # don't let you less great network connection cause the role to falter
@@ -146,3 +146,11 @@ anaconda_checksums:
   Anaconda3-2021.05-MacOSX-x86_64.sh: sha256:0407bee87eeecad521f1e38eb607b0a85babef4c1b47516dc5c090e152eba5d5
   # https://repo.anaconda.com/archive/Anaconda3-2021.05-Windows-x86_64.exe
   Anaconda3-2021.05-Windows-x86_64.exe: sha256:93db42390444019e98b442ab281e1091671b6dce64daf08928d337ffc83cf3d2
+  # https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-ppc64le.sh
+  Anaconda3-2021.11-Linux-ppc64le.sh: sha256:7eb6a95925ee756240818599f8dcbba7a155adfb05ef6cd5336aa3c083de65f3
+  # https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh
+  Anaconda3-2021.11-Linux-x86_64.sh: sha256:fedf9e340039557f7b5e8a8a86affa9d299f5e9820144bd7b92ae9f7ee08ac60
+  # https://repo.anaconda.com/archive/Anaconda3-2021.11-MacOSX-x86_64.sh
+  Anaconda3-2021.11-MacOSX-x86_64.sh: sha256:6a9217d1a08c599f860045d56ef64fc6c3e3112b55cc97f3d07c573d7bbcdb58
+  # https://repo.anaconda.com/archive/Anaconda3-2021.11-Windows-x86_64.exe
+  Anaconda3-2021.11-Windows-x86_64.exe: sha256:1b3d593d1deb22b835be5c68897075e0fc9dea240ab4191c55674aba259a78ff
