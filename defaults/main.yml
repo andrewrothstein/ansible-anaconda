@@ -14,12 +14,12 @@ anaconda_timeout_seconds: 600
 
 # add the anaconda python onto the front of your path.
 # Caveat Emptor: if your OS package manager is python based careful about jamming it
-anaconda_make_sys_default: False
+anaconda_make_sys_default: false
 
 anaconda_parent_dir: "{{ ansible_env.USERPROFILE + '\\AppData\\Local\\Continuum' if ansible_os_family == 'Windows' else '/usr/local' }}"
 anaconda_link_subdir: anaconda
 
-anaconda_pkg_update: True
+anaconda_pkg_update: true
 
 # install a a list of packages into the root conda env. please consider using conda envs effectively!
 #anaconda_install_packages:
@@ -31,7 +31,7 @@ anaconda_pkg_update: True
 
 # additional control over windows-installer specific options
 win_anaconda_installation_type: JustMe
-win_anaconda_add_to_path: True
+win_anaconda_add_to_path: true
 
 # anaconda checksums...
 # https://repo.continuum.io/archive/

@@ -20,7 +20,7 @@
       win_stat:
         path: '{{ anaconda_installer.dest }}'
         checksum_algorithm: md5
-        get_checksum: yes
+        get_checksum: true
       register: anaconda_installer_
 
     - name: verify installer checksum

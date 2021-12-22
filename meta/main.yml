@@ -1,36 +1,36 @@
 dependencies:
-- role: andrewrothstein.alpine-glibc-shim
-  version: v2.0.16
-- role: andrewrothstein.bash
-  version: v1.1.8
-- role: andrewrothstein.unarchive-deps
-  version: v1.2.1
+  - role: andrewrothstein.alpine-glibc-shim
+    version: v2.0.16
+  - role: andrewrothstein.bash
+    version: v1.1.8
+  - role: andrewrothstein.unarchive-deps
+    version: v1.2.1
 galaxy_info:
   author: Andrew Rothstein
   company: BlackRock
   description: installs Anaconda
   galaxy_tags:
-  - python
-  - conda
-  - anaconda
+    - python
+    - conda
+    - anaconda
   license:
-  - MIT
+    - MIT
   min_ansible_version: 2.0
   platforms:
-  - name: Archlinux
-    versions:
-    - all
-  - name: Debian
-    versions:
-    - bullseye
-  - name: EL
-    versions:
-    - 8
-  - name: Fedora
-    versions:
-    - 34
-    - 35
-  - name: Ubuntu
-    versions:
-    - bionic
-    - focal
+    - name: Archlinux
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - bullseye
+    - name: EL
+      versions:
+        - 8
+    - name: Fedora
+      versions:
+        - 34
+        - 35
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal

@@ -1,6 +1,6 @@
 ---
 - hosts: all
   roles:
-    - role: '{{playbook_dir}}'
-      anaconda_make_sys_default: True
-      anaconda_pkg_update: False
+    - role: '{{ playbook_dir }}'
+      anaconda_make_sys_default: true
+      anaconda_pkg_update: false
