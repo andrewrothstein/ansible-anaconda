@@ -1,4 +1,4 @@
-**~
+**~*.retry
 Dockerfile.*
 requirements.yml
-xssh
+!meta/requirements.yml

@@ -1,3 +1,4 @@
+---
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,10 +13,8 @@ jobs:
 
         if [ -f requirements.txt ]; then python -m pip install -r requirements.txt;
         fi'
-    - name: Generate requirements.yml
-      run: ansible-galaxy-local-deps-write
     - name: 'dcb #ftw'
-      run: dcb --targetregistry ghcr.io --upstreamgroup andrewrothstein --upstreamapp
+      run: dcb --upstreamregistry ghcr.io --upstreamgroup andrewrothstein --upstreamapp
         docker-ansible --targetregistry ghcr.io --targetuser ${{ github.actor }} --targetpwd
         ${{ github.token }} --snippet from.j2 ansible-test-role.j2 --pullall --writeall
         --buildall --pushall --alltags ${{ matrix.os }}
