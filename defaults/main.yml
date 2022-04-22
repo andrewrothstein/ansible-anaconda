@@ -156,3 +156,9 @@ anaconda_checksums:
   Anaconda3-2021.11-Windows-x86_64.exe: sha256:1b3d593d1deb22b835be5c68897075e0fc9dea240ab4191c55674aba259a78ff
 
 anaconda_tmp_dir: /tmp
+
+# It might be necessary to change the umask on some systems, so that users
+# other than "root" can use anaconda.
+#
+# anaconda_umask: '022'
+anaconda_umask: ''
