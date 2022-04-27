@@ -15,6 +15,11 @@
 
 - when: not anaconda_conda_binary.stat.exists
   block:
+    - name: ensure that {{ anaconda_tmp_dir }} directory exists
+      file:
+        path: "{{ anaconda_tmp_dir }}"
+        state: directory
+
     - name: downloading {{ anaconda_installer_url }} to {{ anaconda_installer_tmp_sh }}
       become: true
       become_user: root
@@ -28,7 +33,7 @@
     - name: launching installer {{ anaconda_installer_tmp_sh }} with bash
       become: true
       become_user: root
-      command: bash {{ anaconda_installer_tmp_sh }} -b -p {{ anaconda_install_dir }}
+      shell: 'TMPDIR={{ anaconda_tmp_dir }} bash {{ anaconda_installer_tmp_sh }} -b -p {{ anaconda_install_dir }}'
       args:
         creates: '{{ anaconda_install_dir }}'
 
