@@ -33,7 +33,11 @@
     - name: launching installer {{ anaconda_installer_tmp_sh }} with bash
       become: true
       become_user: root
-      shell: 'TMPDIR={{ anaconda_tmp_dir }} bash {{ anaconda_installer_tmp_sh }} -b -p {{ anaconda_install_dir }}'
+      shell: |
+        (
+          [ ! -z "{{ anaconda_umask }}" ] && umask {{ anaconda_umask }}
+          TMPDIR={{ anaconda_tmp_dir }} bash {{ anaconda_installer_tmp_sh }} -b -p {{ anaconda_install_dir }}
+        )
       args:
         creates: '{{ anaconda_install_dir }}'
 
@@ -57,7 +61,11 @@
   become: true
   become_user: root
   when: anaconda_pkg_update
-  command: '{{ anaconda_conda_bin }} update -y --all'
+  shell: |
+    (
+      [ ! -z "{{ anaconda_umask }}" ] && umask {{ anaconda_umask }}
+      {{ anaconda_conda_bin }} update -y --all
+    )
 
 - name: remove conda-curl since it conflicts with the system curl
   become: true
