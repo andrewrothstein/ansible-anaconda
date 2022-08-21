@@ -6,7 +6,7 @@ anaconda_mirror: https://repo.continuum.io/archive
 anaconda_python_ver: 3
 
 # anaconda version
-anaconda_ver: '2021.11'
+anaconda_ver: '2022.05'
 
 # when downloading the anaconda binary it might take a while
 # don't let you less great network connection cause the role to falter
@@ -154,6 +154,22 @@ anaconda_checksums:
   Anaconda3-2021.11-MacOSX-x86_64.sh: sha256:6a9217d1a08c599f860045d56ef64fc6c3e3112b55cc97f3d07c573d7bbcdb58
   # https://repo.anaconda.com/archive/Anaconda3-2021.11-Windows-x86_64.exe
   Anaconda3-2021.11-Windows-x86_64.exe: sha256:1b3d593d1deb22b835be5c68897075e0fc9dea240ab4191c55674aba259a78ff
+  # https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-aarch64.sh
+  Anaconda3-2022.05-Linux-aarch64.sh: sha256:dc6bb4eab3996e0658f8bc4bbd229c18f55269badd74acc36d9e23143268b795
+  # https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-ppc64le.sh
+  Anaconda3-2022.05-Linux-ppc64le.sh: sha256:a50bf5bd26b5c5a2c24028c1aff6da2fa4d4586ca43ae3acdf7ffb9b50d7f282
+  # https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-s390x.sh
+  Anaconda3-2022.05-Linux-s390x.sh: sha256:c14415df69e439acd7458737a84a45c6067376cbec2fccf5e2393f9837760ea7
+  # https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh
+  Anaconda3-2022.05-Linux-x86_64.sh: sha256:a7c0afe862f6ea19a596801fc138bde0463abcbce1b753e8d5c474b506a2db2d
+  # https://repo.anaconda.com/archive/Anaconda3-2022.05-MacOSX-arm64.sh
+  Anaconda3-2022.05-MacOSX-arm64.sh: sha256:a12119931945a9a1453993582259cc67318a9a75a15731e5ccc15365e7f88a36
+  # https://repo.anaconda.com/archive/Anaconda3-2022.05-MacOSX-x86_64.sh
+  Anaconda3-2022.05-MacOSX-x86_64.sh: sha256:1a10c06660ebe1204e538b4e9d810142441af9dfd74b077eee2761ec6e675f39
+  # https://repo.anaconda.com/archive/Anaconda3-2022.05-Windows-x86.exe
+  Anaconda3-2022.05-Windows-x86.exe: sha256:cd8c688349bcd1f429e3b383620fb0d19f52be0f765b2eae78d63b41aefb2e73
+  # https://repo.anaconda.com/archive/Anaconda3-2022.05-Windows-x86_64.exe
+  Anaconda3-2022.05-Windows-x86_64.exe: sha256:2766eb102f9d65da36d262b651777358de39fbe5f1a74f9854a2e5e29caeeeec
 
 anaconda_tmp_dir: /tmp
 

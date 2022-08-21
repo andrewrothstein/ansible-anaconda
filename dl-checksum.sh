@@ -18,7 +18,7 @@ dl()
 
     if [ ! -e $lfile ];
     then
-        wget -q -O $lfile $url
+        curl -sSLf -o $lfile $url
     fi
 
     printf "  # %s\n" $url
@@ -28,10 +28,14 @@ dl()
 dlver () {
     local ver=$1
     local python_ver=$2
+    dl $ver $python_ver Linux aarch64
     dl $ver $python_ver Linux ppc64le
+    dl $ver $python_ver Linux s390x
     dl $ver $python_ver Linux x86_64
+    dl $ver $python_ver MacOSX arm64
     dl $ver $python_ver MacOSX x86_64
+    dl $ver $python_ver Windows x86 exe
     dl $ver $python_ver Windows x86_64 exe
 }
 
-dlver 2021.11 3
+dlver 2022.05 3
