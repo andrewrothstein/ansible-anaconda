@@ -1,3 +1,4 @@
+---
 galaxy_info:
   author: Andrew Rothstein
   company: BlackRock
@@ -19,14 +20,16 @@ galaxy_info:
     - name: EL
       versions:
         - 8
+        - 9
     - name: Fedora
       versions:
-        - 35
         - 36
+        - 37
     - name: Ubuntu
       versions:
         - bionic
         - focal
+        - jammy
 dependencies:
   - andrewrothstein.alpine-glibc-shim
   - andrewrothstein.bash

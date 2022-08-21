@@ -1,9 +1,10 @@
 ---
 - archlinux_latest
-- centos_8
 - debian_bullseye
-- fedora_35
 - fedora_36
+- fedora_37
 - rockylinux_8
+- rockylinux_9
 - ubuntu_bionic
 - ubuntu_focal
+- ubuntu_jammy

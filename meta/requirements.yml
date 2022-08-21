@@ -1,7 +1,7 @@
 ---
 - name: andrewrothstein.alpine-glibc-shim
-  version: v2.0.17
+  version: v2.0.18
 - name: andrewrothstein.bash
-  version: v1.1.10
+  version: v1.1.11
 - name: andrewrothstein.unarchive-deps
-  version: v1.2.3
+  version: v1.2.4
