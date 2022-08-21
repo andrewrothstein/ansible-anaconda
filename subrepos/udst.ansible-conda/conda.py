@@ -70,7 +70,7 @@ stderr:
 """
 
 
-from distutils.spawn import find_executable
+from shutil import which
 import os.path
 import json
 from ansible.module_utils.basic import AnsibleModule
@@ -162,7 +162,7 @@ def find_conda(executable):
     executable in the path. Calls `fail_json` if either of these fail.
     """
     if not executable:
-        conda = find_executable('conda')
+        conda = which('conda')
         if conda:
             return conda
     else:
