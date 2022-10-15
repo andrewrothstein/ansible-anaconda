@@ -30,7 +30,3 @@ galaxy_info:
         - bionic
         - focal
         - jammy
-dependencies:
-  - andrewrothstein.alpine-glibc-shim
-  - andrewrothstein.bash
-  - andrewrothstein.unarchive-deps

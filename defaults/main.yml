@@ -33,6 +33,14 @@ anaconda_pkg_update: true
 win_anaconda_installation_type: JustMe
 win_anaconda_add_to_path: true
 
+anaconda_tmp_dir: /tmp
+
+# It might be necessary to change the umask on some systems, so that users
+# other than "root" can use anaconda.
+#
+# anaconda_umask: '022'
+anaconda_umask: ''
+
 # anaconda checksums...
 # https://repo.continuum.io/archive/
 anaconda_checksums:
@@ -170,11 +178,3 @@ anaconda_checksums:
   Anaconda3-2022.05-Windows-x86.exe: sha256:cd8c688349bcd1f429e3b383620fb0d19f52be0f765b2eae78d63b41aefb2e73
   # https://repo.anaconda.com/archive/Anaconda3-2022.05-Windows-x86_64.exe
   Anaconda3-2022.05-Windows-x86_64.exe: sha256:2766eb102f9d65da36d262b651777358de39fbe5f1a74f9854a2e5e29caeeeec
-
-anaconda_tmp_dir: /tmp
-
-# It might be necessary to change the umask on some systems, so that users
-# other than "root" can use anaconda.
-#
-# anaconda_umask: '022'
-anaconda_umask: ''

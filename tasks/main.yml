@@ -1,7 +1,11 @@
 ---
+- include_role:
+    name: andrewrothstein.bash
+- include_role:
+    name: andrewrothstein.unarchive-deps
 
 - name: resolve platform specific vars
-  include_vars: "{{ item }}"
+  include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_os_family }}.yml'
@@ -10,7 +14,7 @@
         - '{{ role_path }}/vars'
 
 - name: resolve platform specific tasks
-  include_tasks: "{{ item }}"
+  include_tasks: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_os_family }}.yml'
