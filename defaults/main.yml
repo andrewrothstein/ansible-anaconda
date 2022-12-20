@@ -6,7 +6,7 @@ anaconda_mirror: https://repo.continuum.io/archive
 anaconda_python_ver: 3
 
 # anaconda version
-anaconda_ver: '2022.05'
+anaconda_ver: '2022.10'
 
 # when downloading the anaconda binary it might take a while
 # don't let you less great network connection cause the role to falter
@@ -178,3 +178,17 @@ anaconda_checksums:
   Anaconda3-2022.05-Windows-x86.exe: sha256:cd8c688349bcd1f429e3b383620fb0d19f52be0f765b2eae78d63b41aefb2e73
   # https://repo.anaconda.com/archive/Anaconda3-2022.05-Windows-x86_64.exe
   Anaconda3-2022.05-Windows-x86_64.exe: sha256:2766eb102f9d65da36d262b651777358de39fbe5f1a74f9854a2e5e29caeeeec
+  # https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-aarch64.sh
+  Anaconda3-2022.10-Linux-aarch64.sh: sha256:fbadbfae5992a8c96af0a4621262080eea44e22baee2172e3dfb640f5cf8d22d
+  # https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-ppc64le.sh
+  Anaconda3-2022.10-Linux-ppc64le.sh: sha256:8fdebc79f63b74daad421a2674d43299fa9c5007d85cf00e8dc1a81fbf2787e4
+  # https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-s390x.sh
+  Anaconda3-2022.10-Linux-s390x.sh: sha256:f5ccc24aedab1f3f9cccf1945ca1061bee194fa42a212ec26425f3b77fdd943a
+  # https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
+  Anaconda3-2022.10-Linux-x86_64.sh: sha256:e7ecbccbc197ebd7e1f211c59df2e37bc6959d081f2235d387e08c9026666acd
+  # https://repo.anaconda.com/archive/Anaconda3-2022.10-MacOSX-arm64.sh
+  Anaconda3-2022.10-MacOSX-arm64.sh: sha256:200700077db8eed762fbc996b830c3f8cc5a2bb7d6b20bb367147eb35f2dcc72
+  # https://repo.anaconda.com/archive/Anaconda3-2022.10-MacOSX-x86_64.sh
+  Anaconda3-2022.10-MacOSX-x86_64.sh: sha256:dfcd1431a8206506799cb142b04d2db3be8a28671e5c3672920c09c71246dde0
+  # https://repo.anaconda.com/archive/Anaconda3-2022.10-Windows-x86_64.exe
+  Anaconda3-2022.10-Windows-x86_64.exe: sha256:38b9d53a579843fe41fd05fd3c4f9ac3887f580e7bd9b43f220bbc3aea2367eb

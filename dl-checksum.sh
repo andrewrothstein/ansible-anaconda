@@ -34,8 +34,7 @@ dlver () {
     dl $ver $python_ver Linux x86_64
     dl $ver $python_ver MacOSX arm64
     dl $ver $python_ver MacOSX x86_64
-    dl $ver $python_ver Windows x86 exe
     dl $ver $python_ver Windows x86_64 exe
 }
 
-dlver 2022.05 3
+dlver 2022.10 3
