@@ -2,7 +2,7 @@
 - include_role:
     name: andrewrothstein.bash
 - include_role:
-    name: andrewrothstein.unarchive-deps
+    name: andrewrothstein.unarchivedeps
 
 - name: resolve platform specific vars
   include_vars: '{{ item }}'

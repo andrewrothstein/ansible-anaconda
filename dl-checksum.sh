@@ -37,4 +37,4 @@ dlver () {
     dl $ver $python_ver Windows x86_64 exe
 }
 
-dlver 2022.10 3
+dlver 2023.07-1 3
