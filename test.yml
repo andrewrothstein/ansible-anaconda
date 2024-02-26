@@ -1,6 +1,8 @@
 ---
-- hosts: all
+- name: Testing andrewrothstein.anaconda
+  hosts: all
+  vars:
+    anaconda_make_sys_default: true
+    anaconda_pkg_update: false
   roles:
     - role: '{{ playbook_dir }}'
-      anaconda_make_sys_default: true
-      anaconda_pkg_update: false
