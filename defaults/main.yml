@@ -22,12 +22,12 @@ anaconda_link_subdir: anaconda
 anaconda_pkg_update: true
 
 # install a a list of packages into the root conda env. please consider using conda envs effectively!
-#anaconda_install_packages:
-#  - package1
-#  - package2
+# anaconda_install_packages:
+#   - package1
+#   - package2
 
 # control the install channels
-#anaconda_install_channels: "defaults conda-forge bioconda"
+# anaconda_install_channels: "defaults conda-forge bioconda"
 
 # additional control over windows-installer specific options
 win_anaconda_installation_type: JustMe

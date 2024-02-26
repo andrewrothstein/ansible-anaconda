@@ -32,7 +32,7 @@
           - 'checksum == anaconda_checksum'
         msg: 'anaconda installer checksum mismatch'
 
-    - name: install...
+    - name: Install...
       ansible.windows.win_package:
         path: '{{ anaconda_installer.dest }}'
         creates_path: '{{ anaconda_install_dir }}'

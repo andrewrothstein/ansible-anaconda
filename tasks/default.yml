@@ -8,7 +8,7 @@
 
 - name: Check for installation at {{ anaconda_install_exe }}
   become: true
-  stat:
+  ansible.builtin.stat:
     path: '{{ anaconda_install_exe }}'
   changed_when: false
   register: anaconda_conda_binary
@@ -35,7 +35,7 @@
     - name: Launching installer {{ anaconda_installer_tmp_sh }} with bash
       become: true
       become_user: root
-      shell: |-
+      ansible.builtin.shell: |-
         [ -n "{{ anaconda_umask }}" ] && umask {{ anaconda_umask }};
         TMPDIR={{ anaconda_tmp_dir }} \
           bash "{{ anaconda_installer_tmp_sh }}" \
@@ -64,9 +64,10 @@
   become: true
   become_user: root
   when: anaconda_pkg_update
-  shell: |-
+  ansible.builtin.shell: |-
     [ -n "{{ anaconda_umask }}" ] && umask {{ anaconda_umask }};
     {{ anaconda_conda_bin }} update -y --all;
+  changed_when: false
 
 - name: Remove conda-curl since it conflicts with the system curl
   become: true
@@ -85,7 +86,7 @@
       d: /etc/profile.d
   loop_control:
     loop_var: tt
-  template:
+  ansible.builtin.template:
     src: '{{ tt.f }}.j2'
     dest: '{{ tt.d }}/{{ tt.f }}'
     mode: '{{ tt.m | default("644") }}'
