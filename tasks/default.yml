@@ -1,73 +1,74 @@
 ---
-- name: installing OS pkg dependencies
+- name: Installing OS pkg dependencies
   become: true
   become_user: root
-  package:
+  ansible.builtin.package:
     state: present
     name: '{{ anaconda_dep_pkgs | default([]) }}'
 
-- name: check for installation at {{ anaconda_install_exe }}
+- name: Check for installation at {{ anaconda_install_exe }}
   become: true
   stat:
     path: '{{ anaconda_install_exe }}'
   changed_when: false
   register: anaconda_conda_binary
 
-- when: not anaconda_conda_binary.stat.exists
+- name: Downloading and installing anaconda
+  when: not anaconda_conda_binary.stat.exists
   block:
-    - name: ensure that {{ anaconda_tmp_dir }} directory exists
-      file:
+    - name: Ensure that {{ anaconda_tmp_dir }} directory exists
+      ansible.builtin.file:
         path: "{{ anaconda_tmp_dir }}"
         state: directory
+        mode: '755'
 
-    - name: downloading {{ anaconda_installer_url }} to {{ anaconda_installer_tmp_sh }}
+    - name: Downloading {{ anaconda_installer_url }} to {{ anaconda_installer_tmp_sh }}
       become: true
       become_user: root
-      get_url:
+      ansible.builtin.get_url:
         url: '{{ anaconda_installer_url }}'
         dest: '{{ anaconda_installer_tmp_sh }}'
         timeout: '{{ anaconda_timeout_seconds }}'
         checksum: '{{ anaconda_checksum }}'
-        mode: 0755
+        mode: '755'
 
-    - name: launching installer {{ anaconda_installer_tmp_sh }} with bash
+    - name: Launching installer {{ anaconda_installer_tmp_sh }} with bash
       become: true
       become_user: root
-      shell: |
-        (
-          [ ! -z "{{ anaconda_umask }}" ] && umask {{ anaconda_umask }}
-          TMPDIR={{ anaconda_tmp_dir }} bash {{ anaconda_installer_tmp_sh }} -b -p {{ anaconda_install_dir }}
-        )
+      shell: |-
+        [ -n "{{ anaconda_umask }}" ] && umask {{ anaconda_umask }};
+        TMPDIR={{ anaconda_tmp_dir }} \
+          bash "{{ anaconda_installer_tmp_sh }}" \
+          -b \
+          -p "{{ anaconda_install_dir }}";
       args:
         creates: '{{ anaconda_install_dir }}'
 
   always:
-    - name: rm {{ anaconda_installer_tmp_sh }}
+    - name: Rm {{ anaconda_installer_tmp_sh }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ anaconda_installer_tmp_sh }}'
         state: absent
 
-- name: linking {{ anaconda_link_dir }} to {{ anaconda_install_dir }}
+- name: Linking {{ anaconda_link_dir }} to {{ anaconda_install_dir }}
   become: true
   become_user: root
-  file:
+  ansible.builtin.file:
     src: '{{ anaconda_install_dir }}'
     dest: '{{ anaconda_link_dir }}'
     state: link
 
-- name: updating all conda pkgs...
+- name: Updating all conda pkgs...
   become: true
   become_user: root
   when: anaconda_pkg_update
-  shell: |
-    (
-      [ ! -z "{{ anaconda_umask }}" ] && umask {{ anaconda_umask }}
-      {{ anaconda_conda_bin }} update -y --all
-    )
+  shell: |-
+    [ -n "{{ anaconda_umask }}" ] && umask {{ anaconda_umask }};
+    {{ anaconda_conda_bin }} update -y --all;
 
-- name: remove conda-curl since it conflicts with the system curl
+- name: Remove conda-curl since it conflicts with the system curl
   become: true
   become_user: root
   conda:
@@ -75,7 +76,7 @@
     state: absent
     executable: '{{ anaconda_conda_bin }}'
 
-- name: make system default python etc...
+- name: Make system default python etc...
   become: true
   become_user: root
   when: anaconda_make_sys_default
@@ -87,9 +88,9 @@
   template:
     src: '{{ tt.f }}.j2'
     dest: '{{ tt.d }}/{{ tt.f }}'
-    mode: '{{ tt.m | default("0644") }}'
+    mode: '{{ tt.m | default("644") }}'
 
-- name: installing additional conda packages
+- name: Installing additional conda packages
   become: true
   become_user: root
   loop: '{{ anaconda_install_packages | default([]) }}'

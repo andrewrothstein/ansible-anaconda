@@ -1,38 +1,39 @@
 ---
-- name: check for existance of Anaconda
-  win_stat:
+- name: Check for existance of Anaconda
+  ansible.windows.win_stat:
     path: '{{ anaconda_conda_bin }}'
     changed_when: false
   register: anaconda_conda_bin_
 
-- when: not anaconda_conda_bin_.stat.exists
+- name: Downloading and installing anaconda
+  when: not anaconda_conda_bin_.stat.exists
   vars:
     anaconda_installer_dest: '{{ ansible_env.TEMP }}\{{ anaconda_installer_sh }}'
   block:
-    - name: download installer...
-      win_get_url:
+    - name: Download installer...
+      ansible.windows.win_get_url:
         url: '{{ anaconda_installer_url }}'
         dest: '{{ anaconda_installer_dest }}'
         timeout: '{{ anaconda_timeout_seconds }}'
       register: anaconda_installer
 
-    - name: get installer information
-      win_stat:
+    - name: Get installer information
+      ansible.windows.win_stat:
         path: '{{ anaconda_installer.dest }}'
         checksum_algorithm: md5
         get_checksum: true
       register: anaconda_installer_
 
-    - name: verify installer checksum
+    - name: Verify installer checksum
       vars:
         checksum: '{{ anaconda_installer_.stat.checksum }}'
-      assert:
+      ansible.builtin.assert:
         that:
           - 'checksum == anaconda_checksum'
         msg: 'anaconda installer checksum mismatch'
 
     - name: install...
-      win_package:
+      ansible.windows.win_package:
         path: '{{ anaconda_installer.dest }}'
         creates_path: '{{ anaconda_install_dir }}'
         state: present
@@ -44,7 +45,7 @@
           - /D={{ anaconda_install_dir }}
 
   always:
-    - name: delete installer...
-      win_file:
+    - name: Delete installer...
+      ansible.windows.win_file:
         path: '{{ anaconda_installer_dest }}'
         state: absent

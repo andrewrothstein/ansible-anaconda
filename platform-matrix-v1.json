@@ -1,0 +1,38 @@
+[
+  {
+    "OS": "archlinux",
+    "OS_VER": "latest"
+  },
+  {
+    "OS": "debian",
+    "OS_VER": "bookworm"
+  },
+  {
+    "OS": "debian",
+    "OS_VER": "bullseye"
+  },
+  {
+    "OS": "fedora",
+    "OS_VER": "38"
+  },
+  {
+    "OS": "fedora",
+    "OS_VER": "39"
+  },
+  {
+    "OS": "rockylinux",
+    "OS_VER": "8"
+  },
+  {
+    "OS": "rockylinux",
+    "OS_VER": "9"
+  },
+  {
+    "OS": "ubuntu",
+    "OS_VER": "focal"
+  },
+  {
+    "OS": "ubuntu",
+    "OS_VER": "jammy"
+  }
+]

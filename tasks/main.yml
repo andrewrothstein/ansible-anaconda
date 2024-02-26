@@ -1,11 +1,13 @@
 ---
-- include_role:
+- name: Installing andrewrothstein.bash
+  ansible.builtin.include_role:
     name: andrewrothstein.bash
-- include_role:
+- name: Installing andrewrothstein.unarchivedeps
+  ansible.builtin.include_role:
     name: andrewrothstein.unarchivedeps
 
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_os_family }}.yml'
@@ -13,8 +15,8 @@
       paths:
         - '{{ role_path }}/vars'
 
-- name: resolve platform specific tasks
-  include_tasks: '{{ item }}'
+- name: Resolve platform specific tasks
+  ansible.builtin.include_tasks: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_os_family }}.yml'

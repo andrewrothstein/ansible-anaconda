@@ -1,44 +1,5 @@
 ---
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: install python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: install task
-      uses: arduino/setup-task@v1
-      with:
-        repo-token: ${{ github.token }}
-    - name: task ver
-      run: task --version
-    - name: download task mono
-      uses: actions/checkout@v3
-      with:
-        path: taskmono
-        ref: develop
-        repository: andrewrothstein/tasks
-    - name: 'task #ftw'
-      run: task -t taskmono/ansible-test-role.yml "targetuser=${{ github.actor }}"
-        "targetpwd=${{ github.token }}" "alltags=${{ matrix.os }}"
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-        - archlinux_latest
-        - debian_bookworm
-        - debian_bullseye
-        - fedora_37
-        - fedora_38
-        - rockylinux_8
-        - rockylinux_9
-        - ubuntu_bionic
-        - ubuntu_focal
-        - ubuntu_jammy
-        python-version:
-        - '3.11'
-name: dcb
-'on':
-- push
+  bake-ansible-images-v1:
+    uses: andrewrothstein/.github/.github/workflows/bake-ansible-images-v1.yml@develop
+'on': push
