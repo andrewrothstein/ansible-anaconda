@@ -13,11 +13,11 @@
   },
   {
     "OS": "fedora",
-    "OS_VER": "38"
+    "OS_VER": "39"
   },
   {
     "OS": "fedora",
-    "OS_VER": "39"
+    "OS_VER": "40"
   },
   {
     "OS": "rockylinux",
@@ -29,10 +29,10 @@
   },
   {
     "OS": "ubuntu",
-    "OS_VER": "focal"
+    "OS_VER": "jammy"
   },
   {
     "OS": "ubuntu",
-    "OS_VER": "jammy"
+    "OS_VER": "noble"
   }
 ]

@@ -6,7 +6,7 @@ anaconda_mirror: https://repo.continuum.io/archive
 anaconda_python_ver: 3
 
 # anaconda version
-anaconda_ver: '2023.09-0'
+anaconda_ver: '2024.06-1'
 
 # when downloading the anaconda binary it might take a while
 # don't let you less great network connection cause the role to falter
@@ -33,7 +33,7 @@ anaconda_pkg_update: true
 win_anaconda_installation_type: JustMe
 win_anaconda_add_to_path: true
 
-anaconda_tmp_dir: /tmp
+anaconda_tmp_dir: /tmp/anaconda-tmp
 
 # It might be necessary to change the umask on some systems, so that users
 # other than "root" can use anaconda.
@@ -220,3 +220,15 @@ anaconda_checksums:
   Anaconda3-2023.09-0-MacOSX-x86_64.sh: sha256:0c64a2c634fe31335079d97340c277c81b3f0c9dfe862a06599570640ac897a4
   # https://repo.anaconda.com/archive/Anaconda3-2023.09-0-Windows-x86_64.exe
   Anaconda3-2023.09-0-Windows-x86_64.exe: sha256:810da8bff79c10a708b7af9e8f21e6bb47467261a31741240f27bd807f155cb9
+  # https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-aarch64.sh
+  Anaconda3-2024.06-1-Linux-aarch64.sh: sha256:b4be0ad2052236882402902a31d32cd37635d3db194a42f977be0d68a8ff1a31
+  # https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-s390x.sh
+  Anaconda3-2024.06-1-Linux-s390x.sh: sha256:1b3f4ef4147137fb1861f8251679ea96e651a7c405993c61e39441e43ee2dd11
+  # https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh
+  Anaconda3-2024.06-1-Linux-x86_64.sh: sha256:539bb43d9a52d758d0fdfa1b1b049920ec6f8c6d15ee9fe4a423355fe551a8f7
+  # https://repo.anaconda.com/archive/Anaconda3-2024.06-1-MacOSX-arm64.sh
+  Anaconda3-2024.06-1-MacOSX-arm64.sh: sha256:f9e0795431910ee4ac341c0cc2a0b62e6c497440789b4117c20736db45b34204
+  # https://repo.anaconda.com/archive/Anaconda3-2024.06-1-MacOSX-x86_64.sh
+  Anaconda3-2024.06-1-MacOSX-x86_64.sh: sha256:9b2aa48bfc58e337176d8b5f3776692815807e1346ec12ebcc46a01801bb4ee0
+  # https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Windows-x86_64.exe
+  Anaconda3-2024.06-1-Windows-x86_64.exe: sha256:45eef9132b70e3d5a493c26429ddb4e2c9278a32097fd4bc729f860685633a3b

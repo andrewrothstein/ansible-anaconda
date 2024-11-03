@@ -24,10 +24,10 @@ galaxy_info:
         - '9'
     - name: Fedora
       versions:
-        - '38'
         - '39'
+        - '40'
     - name: Ubuntu
       versions:
-        - focal
         - jammy
+        - noble
   role_name: anaconda
